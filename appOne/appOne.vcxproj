@@ -156,6 +156,9 @@
     <ClCompile Include="ANIMS.cpp" />
     <ClCompile Include="BAT.cpp" />
     <ClCompile Include="BAT_BULLET.cpp" />
+    <ClCompile Include="BOSS.cpp" />
+    <ClCompile Include="BOSS_BULLET.cpp" />
+    <ClCompile Include="CAT.cpp" />
     <ClCompile Include="CHARACTER.cpp" />
     <ClCompile Include="CHARACTER_MANAGER.cpp" />
     <ClCompile Include="CONTAINER.cpp" />
@@ -164,11 +167,14 @@
     <ClCompile Include="GAME.cpp" />
     <ClCompile Include="GAME_OBJECT.cpp" />
     <ClCompile Include="gmain.cpp" />
+    <ClCompile Include="ITEM.cpp" />
     <ClCompile Include="MAP.cpp" />
     <ClCompile Include="PLAYER.cpp" />
     <ClCompile Include="PLAYER_BULLET.cpp" />
     <ClCompile Include="PUMPKIN.cpp" />
+    <ClCompile Include="RANK.cpp" />
     <ClCompile Include="SCENE.cpp" />
+    <ClCompile Include="SHEEP.cpp" />
     <ClCompile Include="STAGE.cpp" />
     <ClCompile Include="TITLE.cpp" />
   </ItemGroup>
@@ -183,6 +189,9 @@
     <ClInclude Include="ANIMS.h" />
     <ClInclude Include="BAT.h" />
     <ClInclude Include="BAT_BULLET.h" />
+    <ClInclude Include="BOSS.h" />
+    <ClInclude Include="BOSS_BULLET.h" />
+    <ClInclude Include="CAT.h" />
     <ClInclude Include="CHARACTER.h" />
     <ClInclude Include="CHARACTER_MANAGER.h" />
     <ClInclude Include="CONTAINER.h" />
@@ -190,11 +199,14 @@
     <ClInclude Include="FADE.h" />
     <ClInclude Include="GAME.h" />
     <ClInclude Include="GAME_OBJECT.h" />
+    <ClInclude Include="ITEM.h" />
     <ClInclude Include="MAP.h" />
     <ClInclude Include="PLAYER.h" />
     <ClInclude Include="PLAYER_BULLET.h" />
     <ClInclude Include="PUMPKIN.h" />
+    <ClInclude Include="RANK.h" />
     <ClInclude Include="SCENE.h" />
+    <ClInclude Include="SHEEP.h" />
     <ClInclude Include="STAGE.h" />
     <ClInclude Include="TITLE.h" />
   </ItemGroup>

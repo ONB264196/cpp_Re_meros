@@ -74,9 +74,6 @@
     <ClCompile Include="CHARACTER_MANAGER.cpp">
       <Filter>character\anim,base,manager</Filter>
     </ClCompile>
-    <ClCompile Include="BAT.cpp">
-      <Filter>character</Filter>
-    </ClCompile>
     <ClCompile Include="BAT_BULLET.cpp">
       <Filter>character</Filter>
     </ClCompile>
@@ -95,6 +92,21 @@
     <ClCompile Include="CONTAINER.cpp">
       <Filter>container</Filter>
     </ClCompile>
+    <ClCompile Include="BAT.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="BOSS.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="CAT.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="SHEEP.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="BOSS_BULLET.cpp" />
+    <ClCompile Include="RANK.cpp" />
+    <ClCompile Include="ITEM.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GAME.h">
@@ -151,6 +163,18 @@
     <ClInclude Include="CONTAINER.h">
       <Filter>container</Filter>
     </ClInclude>
+    <ClInclude Include="BOSS.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="CAT.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="SHEEP.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="BOSS_BULLET.h" />
+    <ClInclude Include="RANK.h" />
+    <ClInclude Include="ITEM.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt">
