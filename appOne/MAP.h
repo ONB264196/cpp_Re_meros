@@ -28,7 +28,10 @@ public:
         PUMPKIN_ID = 'c',
         BAT_ID = 'd',
         BAT_BULLET_ID = 'e',
-        EXPLOSION_ID = 'f'
+        EXPLOSION_ID = 'f',
+        SHEEP_ID = 'g',
+        CAT_ID = 'h',
+        BOSS_ID = 'i'
     };
 private:
     DATA Map;

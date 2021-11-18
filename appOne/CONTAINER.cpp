@@ -101,6 +101,25 @@ void CONTAINER::CreateData()
 	Data.bat.damageColor = COLOR(255, 0, 0, 25);
 	Data.bat.normalColor = COLOR(255, 255, 255);
 
+	//Data.sheepChara.charaId = MAP::SHEEP_ID;
+	//Data.sheepChara.hp = 1;
+	//Data.sheepChara.groupId = 1;
+	//Data.sheepChara.offsetLeft =
+	//Data.sheepChara.offsetRight =
+	//Data.sheepChara.offsetTop =
+	//Data.sheepChara.offsetBottom =
+	//
+	//Data.catChara.charaId = MAP::CAT_ID;
+	//Data.catChara.hp = 1;
+	//Data.catChara.groupId = 1;
+	//Data.catChara.offsetLeft =
+	//Data.catChara.offsetRight =
+	//Data.catChara.offsetTop =
+	//Data.catChara.offsetBottom =
+
+	Data.bossChara.charaId = MAP::BOSS_ID;
+
+
 	Data.batBulletChara.charaId = MAP::BAT_BULLET_ID;
 	Data.batBulletChara.groupId = 1;//ìGÉOÉãÅ[ÉvÇÕ1
 	Data.batBulletChara.hp = 1;
@@ -120,6 +139,8 @@ void CONTAINER::CreateData()
 	Data.charaMng.numPlayerBullets = 5;
 	Data.charaMng.numPumpkins = 5;
 	Data.charaMng.numBats = 5;
+	Data.charaMng.numSheeps =
+	Data.charaMng.numCats =
 	Data.charaMng.numBatBullets = 12;
 	Data.charaMng.numExplosions = 2;
 }

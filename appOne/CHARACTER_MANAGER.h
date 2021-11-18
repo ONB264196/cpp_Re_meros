@@ -9,6 +9,8 @@ public:
         int numPlayerBullets = 0;
         int numPumpkins = 0;
         int numBats = 0;
+        int numSheeps = 0;
+        int numCats = 0;
         int numBatBullets = 0;
         int numExplosions = 0;
     };
@@ -26,7 +28,5 @@ public:
     void update();
     void draw();
     class PLAYER* player() { return Player; }
-
-
 };
 

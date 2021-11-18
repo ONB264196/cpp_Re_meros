@@ -6,14 +6,13 @@ class SHEEP :
 {
 public:
     struct DATA {
-        int rightAnimID = 0;
-        int leftAnimID = 1;
+        int rightAnimId = 0;
+        int leftAnimId = 1;
         int fallFlag = 0;
         float curWx = 0;
         float initVecX = 0;
         float initVecY = 0;
         float gravity = 0;
-
     };
 private:
     DATA Sheep;

@@ -18,7 +18,7 @@ void SHEEP::appear(float wx, float wy, float vx, float vy)
 	Chara.wy = wy;
 	Chara.vx = Sheep.initVecX;
 	Chara.vy = Sheep.initVecY;
-	Chara.animId = Sheep.leftAnimID;
+	Chara.animId = Sheep.leftAnimId;
 	Sheep.fallFlag = 0;
 }
 
