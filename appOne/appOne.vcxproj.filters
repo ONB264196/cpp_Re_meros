@@ -104,9 +104,16 @@
     <ClCompile Include="SHEEP.cpp">
       <Filter>character</Filter>
     </ClCompile>
-    <ClCompile Include="BOSS_BULLET.cpp" />
     <ClCompile Include="RANK.cpp" />
-    <ClCompile Include="ITEM.cpp" />
+    <ClCompile Include="BOSS_BULLET.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="SPORTS_DRINK.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="FLYING_FISH.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GAME.h">
@@ -172,9 +179,16 @@
     <ClInclude Include="SHEEP.h">
       <Filter>character</Filter>
     </ClInclude>
-    <ClInclude Include="BOSS_BULLET.h" />
     <ClInclude Include="RANK.h" />
-    <ClInclude Include="ITEM.h" />
+    <ClInclude Include="BOSS_BULLET.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="SPORTS_DRINK.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="FLYING_FISH.h">
+      <Filter>character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt">

@@ -60,6 +60,34 @@ void CONTAINER::CreateData()
 	Data.playerBulletChara.offsetRight = 30.0f;
 	Data.playerBulletChara.offsetBottom = 30.0f;
 
+	//Data.bossChara.charaId = MAP::BOSS_ID;
+	//Data.bossChara.hp = 30;
+	//Data.bossChara.groupId = 1;
+	//Data.bossChara.speed =
+	//Data.bossChara.offsetLeft =
+	//Data.bossChara.offsetTop =
+	//Data.bossChara.offsetRight =
+	//Data.bossChara.offsetBottom =
+	//Data.boss.rightAnimId = 0;
+	//Data.boss.leftAnimId = 1;
+	//Data.boss.jumpFlag = 0;
+	//Data.boss.initVecUp = -16.0f;
+	//Data.boss.initVecDown = 3.0f;
+	//Data.boss.gravity = 48;
+	//Data.boss.bulletOffsetX =
+	//Data.boss.damageColor = COLOR(255, 0, 0, 25);
+	//Data.boss.normalColor = COLOR(255, 255, 255);
+
+	//Data.bossBulletChara.charaId = MAP::BAT_BULLET_ID;
+	//Data.bossBulletChara.groupId = 1;//ìGÉOÉãÅ[ÉvÇÕ1
+	//Data.bossBulletChara.hp = 1;
+	//Data.bossBulletChara.speed = 4.7f * 60;
+	//Data.bossBulletChara.offsetLeft =
+	//Data.bossBulletChara.offsetTop =
+	//Data.bossBulletChara.offsetRight =
+	//Data.bossBulletChara.offsetBottom =
+
+
 	Data.pumpkinChara.charaId = MAP::PUMPKIN_ID;
 	Data.pumpkinChara.groupId = 1;
 	Data.pumpkinChara.hp = 4;
@@ -117,7 +145,7 @@ void CONTAINER::CreateData()
 	//Data.catChara.offsetTop =
 	//Data.catChara.offsetBottom =
 
-	Data.bossChara.charaId = MAP::BOSS_ID;
+
 
 
 	Data.batBulletChara.charaId = MAP::BAT_BULLET_ID;
@@ -137,11 +165,15 @@ void CONTAINER::CreateData()
 
 	Data.charaMng.numPlayers = 1;
 	Data.charaMng.numPlayerBullets = 5;
+	//Data.charaMng.numBosses = 1;
+	//Data.charaMng.numBossBullets = 1;
 	Data.charaMng.numPumpkins = 5;
 	Data.charaMng.numBats = 5;
-	Data.charaMng.numSheeps =
-	Data.charaMng.numCats =
 	Data.charaMng.numBatBullets = 12;
+	//Data.charaMng.numSheeps =
+	//Data.charaMng.numCats =
+	//Data.charaMng.numSportsDrink = 
+	//Data.charaMng.numFlyingFish = 
 	Data.charaMng.numExplosions = 2;
 }
 
@@ -161,6 +193,9 @@ void CONTAINER::LoadGraphics()
 	//ANIMS
 	Data.playerChara.anims = new ANIMS("assets\\player");
 	Data.playerChara.animData.interval = 0.1f;
+
+	//Data.bossChara.anims = new ANIMS("assets\\boss");
+	//Data.bossChara.animData.interval = 0.1f;
 
 	Data.pumpkinChara.anims = new ANIMS("assets\\pumpkin");
 	Data.pumpkinChara.animData.interval = 0.1f;

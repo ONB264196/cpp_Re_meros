@@ -87,7 +87,7 @@ void BOSS::damage()
 		Boss.damageTime = Boss.damageInterval;
 		Chara.hp--;
 		if (Chara.hp == 0) {
-
+			
 		}
 	}
 

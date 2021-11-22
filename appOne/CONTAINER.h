@@ -10,7 +10,6 @@
 #include"SHEEP.h"
 #include"CAT.h"
 #include"BOSS.h"
-#include"ITEM.h"
 #include"CHARACTER_MANAGER.h"
 
 class CONTAINER
@@ -27,15 +26,15 @@ private:
 		PUMPKIN::DATA pumpkin;
 		CHARACTER::DATA batChara;
 		BAT::DATA bat;
+		CHARACTER::DATA batBulletChara;
 		CHARACTER::DATA sheepChara;
 		SHEEP::DATA sheep;
 		CHARACTER::DATA catChara;
 		CAT::DATA cat;
 		CHARACTER::DATA bossChara;
 		BOSS::DATA boss;
+		CHARACTER::DATA bossBulletChara;
 		CHARACTER::DATA itemChara;
-		ITEM::DATA item;
-		CHARACTER::DATA batBulletChara;
 		CHARACTER::DATA explosionChara;
 		EXPLOSION::DATA explosion;
 		CHARACTER_MANAGER::DATA charaMng;
