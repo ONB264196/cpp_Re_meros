@@ -145,8 +145,21 @@ void CONTAINER::CreateData()
 	//Data.catChara.offsetTop =
 	//Data.catChara.offsetBottom =
 
+	//Data.sports_drinkChara.charaId = MAP::SPORTS_DRINK_ID;
+	//Data.sports_drinkChara.hp = 1;
+	//Data.sports_drinkChara.groupId = 
+	//Data.sports_drinkChara.offsetLeft =
+	//Data.sports_drinkChara.offsetRight =
+	//Data.sports_drinkChara.offsetTop =
+	//Data.sports_drinkChara.offsetBottom =
 
-
+	//Data.flying_fishChara.charaId = MAP::FLYING_FISH_ID;
+	//Data.flying_fishChara.hp = 1;
+	//Data.flying_fishChara.groupId = 
+	//Data.flying_fishChara.offsetLeft =
+	//Data.flying_fishChara.offsetRight =
+	//Data.flying_fishChara.offsetTop =
+	//Data.flying_fishChara.offsetBottom =
 
 	Data.batBulletChara.charaId = MAP::BAT_BULLET_ID;
 	Data.batBulletChara.groupId = 1;//ìGÉOÉãÅ[ÉvÇÕ1

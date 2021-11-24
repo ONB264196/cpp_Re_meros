@@ -32,7 +32,8 @@ public:
         SHEEP_ID = 'g',
         CAT_ID = 'h',
         BOSS_ID = 'i',
-        ITEM_ID = 'j'
+        SPORTS_DRINK_ID = 'j',
+        FLYING_FISH_ID = 'k'
     };
 private:
     DATA Map;

@@ -10,6 +10,8 @@
 #include"SHEEP.h"
 #include"CAT.h"
 #include"BOSS.h"
+#include"SPORTS_DRINK.h"
+#include"FLYING_FISH.h"
 #include"CHARACTER_MANAGER.h"
 
 class CONTAINER
@@ -34,7 +36,10 @@ private:
 		CHARACTER::DATA bossChara;
 		BOSS::DATA boss;
 		CHARACTER::DATA bossBulletChara;
-		CHARACTER::DATA itemChara;
+		SPORTS_DRINK::DATA sports_drink;
+		CHARACTER::DATA sports_drinkChara;
+		FLYING_FISH::DATA flying_fish;
+		CHARACTER::DATA flying_fishChara;
 		CHARACTER::DATA explosionChara;
 		EXPLOSION::DATA explosion;
 		CHARACTER_MANAGER::DATA charaMng;
