@@ -7,13 +7,13 @@
 
 void SPORTS_DRINK::create()
 {
-	Chara = game()->container()->data().spotrs_drinkChara;
+	Chara = game()->container()->data().sports_drinkChara;
 	Sports_drink = game()->container()->data().sports_drink;
 }
 
 void SPORTS_DRINK::appear(float wx, float wy, float vx, float vy)
 {
-	Chara.hp = game()->container()->data().spotrs_drinkChara.hp;
+	Chara.hp = game()->container()->data().sports_drinkChara.hp;
 	Chara.wx = wx;
 	Chara.wy = wy;
 }

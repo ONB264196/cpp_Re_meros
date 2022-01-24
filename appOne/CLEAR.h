@@ -1,10 +1,9 @@
-#pragma once
 #include "SCENE.h"
-class TITLE :
+class CLEAR :
     public SCENE
 {
 public:
-    TITLE(class GAME* game) : SCENE(game) {}
+    CLEAR(class GAME* game) : SCENE(game) {}
     void init();
     void draw();
     void nextScene();

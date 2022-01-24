@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -154,15 +154,13 @@
   <ItemGroup>
     <ClCompile Include="ANIM.cpp" />
     <ClCompile Include="ANIMS.cpp" />
-    <ClCompile Include="BAT.cpp" />
-    <ClCompile Include="BAT_BULLET.cpp" />
     <ClCompile Include="BOSS.cpp" />
     <ClCompile Include="BOSS_BULLET.cpp" />
     <ClCompile Include="CAT.cpp" />
     <ClCompile Include="CHARACTER.cpp" />
     <ClCompile Include="CHARACTER_MANAGER.cpp" />
+    <ClCompile Include="CLEAR.cpp" />
     <ClCompile Include="CONTAINER.cpp" />
-    <ClCompile Include="EXPLOSION.cpp" />
     <ClCompile Include="FADE.cpp" />
     <ClCompile Include="FLYING_FISH.cpp" />
     <ClCompile Include="GAME.cpp" />
@@ -171,7 +169,6 @@
     <ClCompile Include="MAP.cpp" />
     <ClCompile Include="PLAYER.cpp" />
     <ClCompile Include="PLAYER_BULLET.cpp" />
-    <ClCompile Include="PUMPKIN.cpp" />
     <ClCompile Include="RANK.cpp" />
     <ClCompile Include="SCENE.cpp" />
     <ClCompile Include="SHEEP.cpp" />
@@ -188,15 +185,13 @@
   <ItemGroup>
     <ClInclude Include="ANIM.h" />
     <ClInclude Include="ANIMS.h" />
-    <ClInclude Include="BAT.h" />
-    <ClInclude Include="BAT_BULLET.h" />
     <ClInclude Include="BOSS.h" />
     <ClInclude Include="BOSS_BULLET.h" />
     <ClInclude Include="CAT.h" />
     <ClInclude Include="CHARACTER.h" />
     <ClInclude Include="CHARACTER_MANAGER.h" />
+    <ClInclude Include="CLEAR.h" />
     <ClInclude Include="CONTAINER.h" />
-    <ClInclude Include="EXPLOSION.h" />
     <ClInclude Include="FADE.h" />
     <ClInclude Include="FLYING_FISH.h" />
     <ClInclude Include="GAME.h" />
@@ -204,7 +199,6 @@
     <ClInclude Include="MAP.h" />
     <ClInclude Include="PLAYER.h" />
     <ClInclude Include="PLAYER_BULLET.h" />
-    <ClInclude Include="PUMPKIN.h" />
     <ClInclude Include="RANK.h" />
     <ClInclude Include="SCENE.h" />
     <ClInclude Include="SHEEP.h" />

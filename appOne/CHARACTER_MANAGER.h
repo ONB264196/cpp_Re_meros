@@ -8,12 +8,9 @@ public:
         int numPlayers = 0;
         int numBosses = 0;
         int numPlayerBullets = 0;
-        int numPumpkins = 0;
-        int numBats = 0;
+        int numBossBullets = 0;
         int numSheeps = 0;
         int numCats = 0;
-        int numBatBullets = 0;
-        int numExplosions = 0;
         int numFlyingFish = 0;
         int numSportsDrinks = 0;
     };

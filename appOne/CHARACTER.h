@@ -43,6 +43,9 @@ public:
     virtual void update();
     virtual void draw();
     virtual void damage();
+    virtual void buff(char Id);
+    virtual void debuff(char Id);
+
     int   hp() { return Chara.hp; }
     int   groupId() { return Chara.groupId; }
     char  charaId() { return Chara.charaId; }

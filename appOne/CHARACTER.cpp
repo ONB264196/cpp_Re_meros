@@ -57,3 +57,28 @@ void CHARACTER::damage()
 		Chara.hp--;
 	}
 }
+
+void CHARACTER::buff(char Id)
+{
+	//スポーツドリンク
+	if (Id == 'g') {
+		Chara.speed *= 1.5f;
+	}
+	//トビウオ
+	if else (Id == 'h') {
+		//新規ジャンプに関する変数を用意する必要微レ存
+		Chara.
+	}
+}
+
+void CHARACTER::debuff(char Id)
+{
+	//ヒツジ
+	if (Id == 'c') {
+		//インターバルで管理
+	}
+	//猫
+	else if (Id == 'd') {
+		//インターバルで管理
+	}
+}

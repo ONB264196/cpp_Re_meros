@@ -25,15 +25,12 @@ public:
     enum CHARA_ID {
         PLAYER_ID = 'a',
         PLAYER_BULLET_ID = 'b',
-        PUMPKIN_ID = 'c',
-        BAT_ID = 'd',
-        BAT_BULLET_ID = 'e',
-        EXPLOSION_ID = 'f',
-        SHEEP_ID = 'g',
-        CAT_ID = 'h',
-        BOSS_ID = 'i',
-        SPORTS_DRINK_ID = 'j',
-        FLYING_FISH_ID = 'k'
+        SHEEP_ID = 'c',
+        CAT_ID = 'd',
+        BOSS_ID = 'e',
+        BOSS_BULLET_ID = 'f',
+        SPORTS_DRINK_ID = 'g',
+        FLYING_FISH_ID = 'h'
     };
 private:
     DATA Map;

@@ -4,15 +4,14 @@
 #include"FADE.h"
 #include"MAP.h"
 #include"PLAYER.h"
-#include"BAT.h"
-#include"EXPLOSION.h"
-#include"PUMPKIN.h"
 #include"SHEEP.h"
 #include"CAT.h"
 #include"BOSS.h"
 #include"SPORTS_DRINK.h"
 #include"FLYING_FISH.h"
 #include"CHARACTER_MANAGER.h"
+#include"TIME.h"
+#include"RANK.h"
 
 class CONTAINER
 {
@@ -24,11 +23,6 @@ private:
 		CHARACTER::DATA playerChara;
 		PLAYER::DATA player;
 		CHARACTER::DATA playerBulletChara;
-		CHARACTER::DATA pumpkinChara;
-		PUMPKIN::DATA pumpkin;
-		CHARACTER::DATA batChara;
-		BAT::DATA bat;
-		CHARACTER::DATA batBulletChara;
 		CHARACTER::DATA sheepChara;
 		SHEEP::DATA sheep;
 		CHARACTER::DATA catChara;
@@ -40,9 +34,8 @@ private:
 		CHARACTER::DATA sports_drinkChara;
 		FLYING_FISH::DATA flying_fish;
 		CHARACTER::DATA flying_fishChara;
-		CHARACTER::DATA explosionChara;
-		EXPLOSION::DATA explosion;
 		CHARACTER_MANAGER::DATA charaMng;
+		RANK::DATA rank;
 	};
 	DATA Data;
 	void CreateData();

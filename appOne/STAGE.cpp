@@ -47,6 +47,7 @@ void STAGE::BackGround()
 	rectMode(CORNER);
 	imageColor(Stage.backColor);
 	image(Stage.backImg, 0, 0);
+	Stage.time -= delta;
 }
 
 void STAGE::Logo(int img, const COLOR& color)

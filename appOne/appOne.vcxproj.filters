@@ -5,9 +5,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="map">
-      <UniqueIdentifier>{6dfa17e6-f489-480a-acb0-8c96216f968c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="scene">
       <UniqueIdentifier>{8969124b-adeb-489c-bcb5-7e0b6d4335cf}</UniqueIdentifier>
     </Filter>
@@ -25,6 +22,9 @@
     </Filter>
     <Filter Include="container\game">
       <UniqueIdentifier>{98b5593d-6477-4e95-a744-1da920628e7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene\map">
+      <UniqueIdentifier>{6dfa17e6-f489-480a-acb0-8c96216f968c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,7 +48,7 @@
       <Filter>container\game</Filter>
     </ClCompile>
     <ClCompile Include="MAP.cpp">
-      <Filter>map</Filter>
+      <Filter>scene\map</Filter>
     </ClCompile>
     <ClCompile Include="SCENE.cpp">
       <Filter>scene\base</Filter>
@@ -57,9 +57,6 @@
       <Filter>scene</Filter>
     </ClCompile>
     <ClCompile Include="STAGE.cpp">
-      <Filter>scene</Filter>
-    </ClCompile>
-    <ClCompile Include="TITLE.cpp">
       <Filter>scene</Filter>
     </ClCompile>
     <ClCompile Include="ANIM.cpp">
@@ -74,26 +71,14 @@
     <ClCompile Include="CHARACTER_MANAGER.cpp">
       <Filter>character\anim,base,manager</Filter>
     </ClCompile>
-    <ClCompile Include="BAT_BULLET.cpp">
-      <Filter>character</Filter>
-    </ClCompile>
     <ClCompile Include="PLAYER.cpp">
       <Filter>character</Filter>
     </ClCompile>
     <ClCompile Include="PLAYER_BULLET.cpp">
       <Filter>character</Filter>
     </ClCompile>
-    <ClCompile Include="PUMPKIN.cpp">
-      <Filter>character</Filter>
-    </ClCompile>
-    <ClCompile Include="EXPLOSION.cpp">
-      <Filter>character</Filter>
-    </ClCompile>
     <ClCompile Include="CONTAINER.cpp">
       <Filter>container</Filter>
-    </ClCompile>
-    <ClCompile Include="BAT.cpp">
-      <Filter>character</Filter>
     </ClCompile>
     <ClCompile Include="BOSS.cpp">
       <Filter>character</Filter>
@@ -114,6 +99,12 @@
     <ClCompile Include="FLYING_FISH.cpp">
       <Filter>character</Filter>
     </ClCompile>
+    <ClCompile Include="TITLE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CLEAR.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GAME.h">
@@ -123,15 +114,12 @@
       <Filter>container\game</Filter>
     </ClInclude>
     <ClInclude Include="MAP.h">
-      <Filter>map</Filter>
+      <Filter>scene\map</Filter>
     </ClInclude>
     <ClInclude Include="FADE.h">
       <Filter>scene</Filter>
     </ClInclude>
     <ClInclude Include="STAGE.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="TITLE.h">
       <Filter>scene</Filter>
     </ClInclude>
     <ClInclude Include="SCENE.h">
@@ -149,22 +137,10 @@
     <ClInclude Include="CHARACTER_MANAGER.h">
       <Filter>character\anim,base,manager</Filter>
     </ClInclude>
-    <ClInclude Include="BAT.h">
-      <Filter>character</Filter>
-    </ClInclude>
-    <ClInclude Include="BAT_BULLET.h">
-      <Filter>character</Filter>
-    </ClInclude>
     <ClInclude Include="PLAYER.h">
       <Filter>character</Filter>
     </ClInclude>
     <ClInclude Include="PLAYER_BULLET.h">
-      <Filter>character</Filter>
-    </ClInclude>
-    <ClInclude Include="PUMPKIN.h">
-      <Filter>character</Filter>
-    </ClInclude>
-    <ClInclude Include="EXPLOSION.h">
       <Filter>character</Filter>
     </ClInclude>
     <ClInclude Include="CONTAINER.h">
@@ -189,10 +165,16 @@
     <ClInclude Include="FLYING_FISH.h">
       <Filter>character</Filter>
     </ClInclude>
+    <ClInclude Include="TITLE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CLEAR.h">
+      <Filter>scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt">
-      <Filter>map</Filter>
+      <Filter>scene\map</Filter>
     </Text>
   </ItemGroup>
 </Project>

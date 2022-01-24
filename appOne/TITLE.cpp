@@ -38,16 +38,16 @@ void TITLE::draw()
 	fill(255, 255, 0);
 	text("クッキー王子の", (width - size * 7) / 2, 80);
 	size = 90;
-	textSize(size);	
+	textSize(size);
 	text("お菓子なハロウィン", (width - size * 9) / 2, 185);
 	size = 50;
 	textSize(size);
-	text("A⇔D...Move  ", (width - size / 2 * 13) / 2 , 290);
-	text("J......Launch", (width - size / 2 * 13) / 2 , 360);
-	text("K......Jump  ", (width - size / 2 * 13) / 2 , 430);
+	text("A⇔D...Move  ", (width - size / 2 * 13) / 2, 290);
+	text("J......Launch", (width - size / 2 * 13) / 2, 360);
+	text("K......Jump  ", (width - size / 2 * 13) / 2, 430);
 	fill(255, 0, 255);
-	text("Push 'SPACE' to start", (width - size / 2 * 21) / 2 , 550);
-	
+	text("Push 'SPACE' to start", (width - size / 2 * 21) / 2, 550);
+
 	game()->fade()->draw();
 }
 
