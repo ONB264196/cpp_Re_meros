@@ -4,7 +4,6 @@
 #include"GAME.h"
 #include"MAP.h"
 #include "BOSS.h"
-#include "PUMPKIN.cpp"
 
 void BOSS::create()
 {

@@ -1,4 +1,6 @@
 #include"graphic.h"
+#include"window.h"
+#include"input.h"
 #include"ANIMS.h"
 #include"CONTAINER.h"
 #include"GAME.h"
@@ -62,23 +64,40 @@ void CHARACTER::buff(char Id)
 {
 	//スポーツドリンク
 	if (Id == 'g') {
-		Chara.speed *= 1.5f;
+		Chara.speed *= game()->container()->data().sports_drink.buffPower;
 	}
 	//トビウオ
-	if else (Id == 'h') {
-		//新規ジャンプに関する変数を用意する必要微レ存
-		Chara.
+	else if (Id == 'h') {
+		Chara.initVecUp *= game()->container()->data().flying_fish.buffPower;
 	}
 }
 
 void CHARACTER::debuff(char Id)
 {
 	//ヒツジ
+	//インターバルで管理(3秒)
 	if (Id == 'c') {
-		//インターバルで管理
+		Chara.speed = game()->container()->data().playerChara.speed;
+		Chara.speed *= game()->container()->data().sheep.debuffPower;
+		Chara.elapsedTime += delta;
+		if (Chara.elapsedTime <= game()->container()->data().sheep.interval == Chara.elapsedTime) {
+			Chara.speed = game()->container()->data().playerChara.speed;
+		}
 	}
 	//猫
+	//レバガチャで管理(30回)
 	else if (Id == 'd') {
-		//インターバルで管理
+		Chara.speed = game()->container()->data().playerChara.speed;
+		Chara.initVecUp = game()->container()->data().playerChara.initVecUp;
+		Chara.speed *= game()->container()->data().cat.debuffPower;
+		Chara.initVecUp *= game()->container()->data().cat.debuffPower;
+		int count = game()->container()->data().cat.keyCount;
+		if (isTrigger(KEY_A) || isTrigger(KEY_D) ||
+			isTrigger(KEY_LEFT) || isTrigger(KEY_RIGHT)) {
+			count++;
+		}
+		if (count == game()->container()->data().cat.buttonMash) {
+			Chara.speed = game()->container()->data().playerChara.speed;
+		}
 	}
 }

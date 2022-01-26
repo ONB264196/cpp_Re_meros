@@ -4,7 +4,9 @@ class SPORTS_DRINK :
     public CHARACTER
 {
 public:
-    struct DATA {};
+    struct DATA {
+        float buffPower = 0;
+    };
 private:
     DATA Sports_drink;
 public:

@@ -5,7 +5,8 @@
 #include"CONTAINER.h"
 #include"GAME.h"
 #include"MAP.h"
-#include "PLAYER.h"
+#include"PLAYER.h"
+#include"RANK.h"
 
 void PLAYER::create()
 {
@@ -47,7 +48,7 @@ void PLAYER::Move()
 	//ƒWƒƒƒ“ƒv
 	if (Player.jumpFlag == 0) {
 		if (isTrigger(KEY_UP) || isTrigger(KEY_K) || isTrigger(KEY_W)){
-		Chara.vy = Player.initVecUp;
+		Chara.vy = Chara.initVecUp;
 		Player.jumpFlag = 1; }
 	}
 	if (Player.jumpFlag == 1) {
@@ -127,7 +128,7 @@ void PLAYER::damage()
 		Chara.hp--;
 		if (Chara.hp == 0) {
 			State = STATE::DIED;
-			Chara.vy = Player.initVecUp;
+			Chara.vy = Chara.initVecUp;
 		}
 	}
 }

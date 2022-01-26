@@ -43,11 +43,12 @@ void CONTAINER::CreateData()
 	Data.player.rightAnimId = 0;
 	Data.player.leftAnimId = 1;
 	Data.player.jumpFlag = 0;
-	Data.player.initVecUp = -16.0f;
 	Data.player.initVecDown = 3.0f;
 	Data.player.gravity = 48;
 	Data.player.bulletOffsetX = 20.0f;
 	Data.player.bulletCharaId = MAP::PLAYER_BULLET_ID;
+	Data.player.buffCount = 0;
+	Data.player.debuffCount = 0;
 
 	Data.playerBulletChara.charaId = MAP::PLAYER_BULLET_ID;
 	Data.playerBulletChara.groupId = 0; 
@@ -80,44 +81,49 @@ void CONTAINER::CreateData()
 	Data.bossBulletChara.groupId = 1;
 	Data.bossBulletChara.hp = 1;
 	Data.bossBulletChara.speed = 4.7f * 60;
-	Data.bossBulletChara.offsetLeft =
-	Data.bossBulletChara.offsetTop =
-	Data.bossBulletChara.offsetRight =
-	Data.bossBulletChara.offsetBottom =
-
-
+	Data.bossBulletChara.offsetLeft = 50;
+	Data.bossBulletChara.offsetTop = 50;
+	Data.bossBulletChara.offsetRight = 50;
+	Data.bossBulletChara.offsetBottom = 50;
 
 	Data.sheepChara.charaId = MAP::SHEEP_ID;
 	Data.sheepChara.hp = 1;
 	Data.sheepChara.groupId = 3;
-	Data.sheepChara.offsetLeft =
-	Data.sheepChara.offsetRight =
-	Data.sheepChara.offsetTop =
-	Data.sheepChara.offsetBottom =
+	Data.sheepChara.offsetLeft = 50;
+	Data.sheepChara.offsetRight = 50;
+	Data.sheepChara.offsetTop = 50;
+	Data.sheepChara.offsetBottom = 50;
+	Data.sheep.debuffPower = 0.5f;
+	Data.sheep.interval = 3.0f;
 	
 	Data.catChara.charaId = MAP::CAT_ID;
 	Data.catChara.hp = 1;
 	Data.catChara.groupId = 3;
-	Data.catChara.offsetLeft =
-	Data.catChara.offsetRight =
-	Data.catChara.offsetTop =
-	Data.catChara.offsetBottom =
+	Data.catChara.offsetLeft = 50;
+	Data.catChara.offsetRight = 50;
+	Data.catChara.offsetTop = 50;
+	Data.catChara.offsetBottom = 50;
+	Data.cat.debuffPower = 0;
+	Data.cat.keyCount = 0;
+	Data.cat.buttonMash = 30;
 
 	Data.sports_drinkChara.charaId = MAP::SPORTS_DRINK_ID;
 	Data.sports_drinkChara.hp = 1;
 	Data.sports_drinkChara.groupId = 2;
-	Data.sports_drinkChara.offsetLeft =
-	Data.sports_drinkChara.offsetRight =
-	Data.sports_drinkChara.offsetTop =
-	Data.sports_drinkChara.offsetBottom =
+	Data.sports_drinkChara.offsetLeft = 50; 
+	Data.sports_drinkChara.offsetRight = 50;
+	Data.sports_drinkChara.offsetTop = 50;
+	Data.sports_drinkChara.offsetBottom = 50;
+	Data.sports_drink.buffPower = 1.5f;
 
 	Data.flying_fishChara.charaId = MAP::FLYING_FISH_ID;
 	Data.flying_fishChara.hp = 1;
 	Data.flying_fishChara.groupId = 2;
-	Data.flying_fishChara.offsetLeft =
-	Data.flying_fishChara.offsetRight =
-	Data.flying_fishChara.offsetTop =
-	Data.flying_fishChara.offsetBottom =
+	Data.flying_fishChara.offsetLeft = 50;
+	Data.flying_fishChara.offsetRight = 50;
+	Data.flying_fishChara.offsetTop = 50;
+	Data.flying_fishChara.offsetBottom = 50;
+	Data.flying_fish.buffPower = 1.3f;
 
 	Data.charaMng.numPlayers = 1;
 	Data.charaMng.numPlayerBullets = 5;

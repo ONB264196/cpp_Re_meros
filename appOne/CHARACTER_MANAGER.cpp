@@ -3,6 +3,7 @@
 #include"CHARACTER.h"
 #include"PLAYER.h"
 #include"PLAYER_BULLET.h"
+#include"BOSS_BULLET.h"
 #include"CHARACTER_MANAGER.h"
 
 CHARACTER_MANAGER::CHARACTER_MANAGER(GAME* game) : GAME_OBJECT(game)
@@ -39,7 +40,7 @@ void CHARACTER_MANAGER::create()
 	for (i = 0; i < CharaMag.numPlayers; i++)       Characters[j++] = Player;
 	for (i = 0; i < CharaMag.numPlayerBullets; i++) Characters[j++] = new PLAYER_BULLET(game());
 	for (i = 0; i < CharaMag.numBosses; i++)      Characters[j++] = new BOSS(game());
-	for (i = 0; i < CharaMag.numBossBullets; i++)          Characters[j++] = new BOSS_BULLETS(game());
+	for (i = 0; i < CharaMag.numBossBullets; i++)          Characters[j++] = new BOSS_BULLET(game());
 	for (i = 0; i < CharaMag.numCats; i++)    Characters[j++] = new CAT(game());
 	for (i = 0; i < CharaMag.numSheeps; i++)     Characters[j++] = new SHEEP(game());
 	for (i = 0; i < CharaMag.numSportsDrinks; i++) Characters[j++] = new SPORTS_DRINK(game());
@@ -126,13 +127,13 @@ void CHARACTER_MANAGER::update()
 				Characters[j]->wLeft() < Characters[i]->wRight() &&
 				Characters[i]->wTop() < Characters[j]->wBottom() &&
 				Characters[j]->wTop() < Characters[i]->wBottom()) {
-				//プレイヤーとボスが当たった
+				//プレイヤーとボス
 				if (Characters[i]->groupId() == 0 && Characters[j]->groupId() == 1 ||
 					Characters[i]->groupId() == 1 && Characters[j]->groupId() == 0) {
 					Characters[i]->damage();
 					Characters[j]->damage();
 				}
-				//プレイヤーとアイテムが当たった
+				//プレイヤーとアイテム
 				else if (Characters[i]->charaId() == 'a' && Characters[j]->groupId() == 2 ||
 					Characters[i]->groupId() == 2 && Characters[j]->charaId() == 'a') {
 					if (Characters[i]->groupId() == 2) {
@@ -154,7 +155,7 @@ void CHARACTER_MANAGER::update()
 						Characters[j]->damage();
 					}
 				}
-				//プレイヤーとデバフキャラが当たった
+				//プレイヤーとデバフキャラ
 				else if (Characters[i]->charaId() == 'a' && Characters[j]->groupId() == 3 ||
 						 Characters[i]->groupId() == 3 && Characters[j]->charaId() == 'a') {
 					if (Characters[i]->groupId() == 3) {

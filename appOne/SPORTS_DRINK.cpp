@@ -20,5 +20,4 @@ void SPORTS_DRINK::appear(float wx, float wy, float vx, float vy)
 
 void SPORTS_DRINK::update()
 {
-
 }

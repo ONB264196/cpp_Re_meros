@@ -9,11 +9,12 @@ public:
         int leftAnimId = 1;
         int jumpFlag = 0;
         float curWx = 0;
-        float initVecUp = 0;
         float initVecDown = 0;
         float gravity = 0;
         char bulletCharaId = 0;
         float bulletOffsetX = 0;
+        int buffCount = 0;
+        int debuffCount = 0;
     };
 private:
     DATA Player;

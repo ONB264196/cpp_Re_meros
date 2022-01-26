@@ -4,7 +4,9 @@ class FLYING_FISH :
     public CHARACTER
 {
 public:
-    struct DATA {};
+    struct DATA {
+        float buffPower = 0;
+    };
 private:
     DATA Flying_fish;
 public:

@@ -13,6 +13,8 @@ public:
         float initVecX = 0;
         float initVecY = 0;
         float gravity = 0;
+        float debuffPower = 0;
+        float interval = 0;
     };
 private:
     DATA Sheep;
