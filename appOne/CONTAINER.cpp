@@ -47,7 +47,7 @@ void CONTAINER::CreateData()
 	Data.player.gravity = 48;
 	Data.player.bulletOffsetX = 20.0f;
 	Data.player.bulletCharaId = MAP::PLAYER_BULLET_ID;
-	Data.player.buffCount = 0;
+	Data.player.damageCount = 0;
 	Data.player.debuffCount = 0;
 
 	Data.playerBulletChara.charaId = MAP::PLAYER_BULLET_ID;

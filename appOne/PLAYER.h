@@ -13,8 +13,9 @@ public:
         float gravity = 0;
         char bulletCharaId = 0;
         float bulletOffsetX = 0;
-        int buffCount = 0;
+        int damageCount = 0;
         int debuffCount = 0;
+        char rank = 0;
     };
 private:
     DATA Player;
@@ -34,6 +35,7 @@ public:
     void damage();
     bool died();
     bool survived();
+    char rank(int hp, int d, int db);
     float overCenterVx();
 };
 

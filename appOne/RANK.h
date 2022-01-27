@@ -14,6 +14,6 @@ private:
 public:
     RANK(class GAME* game) : GAME_OBJECT(game) {}
     void create();
-    char rank(int hp, int d, int db);
+    virtual void rank(int hp, int d, int db);
 };
 

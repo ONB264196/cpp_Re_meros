@@ -118,6 +118,7 @@ void PLAYER::CheckState()
 	//ステージクリア
 	if (Chara.wx > game()->map()->wDispRight()) {
 		State = STATE::SURVIVED;
+		rank(game()->container()->data().playerChara.hp, Player.damageCount, Player.debuffCount);
 		Chara.hp = 0;
 	}
 }
@@ -126,6 +127,7 @@ void PLAYER::damage()
 {
 	if (Chara.hp > 0) {
 		Chara.hp--;
+		Player.damageCount++;
 		if (Chara.hp == 0) {
 			State = STATE::DIED;
 			Chara.vy = Chara.initVecUp;
@@ -150,6 +152,14 @@ bool PLAYER::died()
 bool PLAYER::survived()
 {
 	return State == STATE::SURVIVED;
+}
+
+char PLAYER::rank(int hp, int d, int db)
+{
+	if (hp == hp - d && db == 0) { return 'S'; }
+	else if (hp == hp - d) { return 'A'; }
+	else if (hp / d <= 2) { return 'B'; }
+	else { return 'C'; }
 }
 
 float PLAYER::overCenterVx()

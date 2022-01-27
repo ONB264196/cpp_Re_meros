@@ -9,7 +9,7 @@ void RANK::create()
 	Rank = game()->container()->data().rank;
 }
 
-char RANK::rank(int hp, int d, int db)
+virtual void RANK::rank(int hp, int d, int db)
 {
 	if (hp == hp - d && db == 0) { return 'S'; }
 	else if (hp == hp - d) { return 'A'; }
