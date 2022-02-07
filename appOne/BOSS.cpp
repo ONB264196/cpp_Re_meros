@@ -26,7 +26,25 @@ void BOSS::update()
 {
 	Move();
 	CollisionWithMap();
+	Launch();
 	ChangeColor();
+}
+
+void BOSS::Launch()
+{
+	Boss.elapsedTime += delta;
+	if (Boss.elapsedTime >= Boss.interval) {
+		Boss.elapsedTime -= Boss.interval;
+		++Boss.triggerCnt %= Boss.triggerInterval;
+		if (Boss.triggerCnt == Boss.trigger1st ||
+			Boss.triggerCnt == Boss.trigger2nd ||
+			Boss.triggerCnt == Boss.trigger3rd ||
+			Boss.triggerCnt == Boss.trigger4th) {
+			game()->characterManager()->appear(Boss.bulletCharaId,
+				Chara.wx - Boss.bulletOffsetX, Chara.wy, -1, 0);
+		}
+	}
+
 }
 
 void BOSS::Move()
@@ -40,6 +58,10 @@ void BOSS::Move()
 	Boss.curWx = Chara.wx;
 	//左右移動
 	Chara.wx += Chara.vx * (Chara.speed * delta);
+	//ランダムに反転
+		
+	//ジャンプ
+
 
 }
 

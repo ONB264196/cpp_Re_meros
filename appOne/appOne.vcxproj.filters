@@ -89,7 +89,6 @@
     <ClCompile Include="SHEEP.cpp">
       <Filter>character</Filter>
     </ClCompile>
-    <ClCompile Include="RANK.cpp" />
     <ClCompile Include="BOSS_BULLET.cpp">
       <Filter>character</Filter>
     </ClCompile>
@@ -105,6 +104,7 @@
     <ClCompile Include="CLEAR.cpp">
       <Filter>scene</Filter>
     </ClCompile>
+    <ClCompile Include="RANK.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GAME.h">
@@ -155,7 +155,6 @@
     <ClInclude Include="SHEEP.h">
       <Filter>character</Filter>
     </ClInclude>
-    <ClInclude Include="RANK.h" />
     <ClInclude Include="BOSS_BULLET.h">
       <Filter>character</Filter>
     </ClInclude>
@@ -171,6 +170,7 @@
     <ClInclude Include="CLEAR.h">
       <Filter>scene</Filter>
     </ClInclude>
+    <ClInclude Include="RANK.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt">

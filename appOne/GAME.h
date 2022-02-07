@@ -11,12 +11,16 @@ public:
 private:
 	class TITLE* Title = nullptr;
 	class STAGE* Stage = nullptr;
+	class CLEAR* Clear = nullptr;
 	class SCENE* CurScene = nullptr;
-	class FADE* Fade = nullptr;
+	class FADE* Fade = nullptr;	
+	class RANK* Rank = nullptr;
 public:
 	class TITLE* title() { return Title; }
 	class STAGE* stage() { return Stage; }
+	class CLEAR* clear() { return Clear; }
 	class FADE* fade() { return Fade; }
+	class RANK* rank() { return Rank; }
 	void setCurScene(SCENE* scene);
 	//キャラクター
 private:

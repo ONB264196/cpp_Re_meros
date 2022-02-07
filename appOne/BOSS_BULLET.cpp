@@ -16,11 +16,15 @@ void BOSS_BULLET::appear(float wx, float wy, float vx, float vy)
 	Chara.wx = wx;
 	Chara.wy = wy;
 	Chara.vx = vx;
+	Chara.vy = rand() % 4 - (float)12;
 }
 
 void BOSS_BULLET::update()
 {
+	
 	Chara.wx += Chara.vx * (Chara.speed * delta);
+	Chara.vy += game()->container()->data().bossBullet.gravity * delta;
+	Chara.wy += Chara.vy * 60 * delta;
 
 	if (game()->map()->collisionCharaRect(wLeft(), wTop(), wRight(), wBottom()) ||
 		Chara.wx < game()->map()->wDispLeft() ||

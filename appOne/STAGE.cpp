@@ -7,6 +7,7 @@
 #include"MAP.h"
 #include"CHARACTER_MANAGER.h"
 #include "STAGE.h"
+#include"CLEAR.h"
 
 void STAGE::create()
 {
@@ -60,5 +61,10 @@ void STAGE::Logo(int img, const COLOR& color)
 void STAGE::nextScene()
 {
 	if (Stage.backToTitleTime <= 0) game()->fade()->outTrigger();
-	if (game()->fade()->outEndFlag()) game()->setCurScene(game()->title());
+	if (game()->characterManager()->player()->survived() || game()->fade()->outEndFlag()) {
+		game()->setCurScene(game()->clear());
+	}
+	else {
+		(game()->setCurScene(game()->title()));
+	}
 }

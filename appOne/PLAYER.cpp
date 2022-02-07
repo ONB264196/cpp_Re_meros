@@ -6,7 +6,6 @@
 #include"GAME.h"
 #include"MAP.h"
 #include"PLAYER.h"
-#include"RANK.h"
 
 void PLAYER::create()
 {

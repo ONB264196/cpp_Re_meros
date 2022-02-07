@@ -4,6 +4,7 @@
 #include"CONTAINER.h"
 #include"TITLE.h"
 #include"STAGE.h"
+#include"CLEAR.h"
 #include"FADE.h"
 #include"MAP.h"
 #include"CHARACTER_MANAGER.h"
@@ -14,6 +15,7 @@ GAME::GAME()
 	Container = new CONTAINER();
 	Title = new TITLE(this);
 	Stage = new STAGE(this);
+	Clear = new CLEAR(this);
 	Fade = new FADE(this);
 	Map = new MAP(this);
 	CharacterManager = new CHARACTER_MANAGER(this);
@@ -24,6 +26,7 @@ GAME::~GAME()
 	delete CharacterManager;
 	delete Map;
 	delete Fade;
+	delete Clear;
 	delete Stage;
 	delete Title;
 	delete Container;
@@ -38,6 +41,7 @@ void GAME::run()
 	
 	Title->create();
 	Stage->create();
+	Clear->create();
 	Fade->create();
 	Map->create();
 	CharacterManager->create();

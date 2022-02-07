@@ -44,7 +44,7 @@ void CONTAINER::CreateData()
 	Data.player.leftAnimId = 1;
 	Data.player.jumpFlag = 0;
 	Data.player.initVecDown = 3.0f;
-	Data.player.gravity = 48;
+	Data.player.gravity = 48.0f;
 	Data.player.bulletOffsetX = 20.0f;
 	Data.player.bulletCharaId = MAP::PLAYER_BULLET_ID;
 	Data.player.damageCount = 0;
@@ -67,12 +67,24 @@ void CONTAINER::CreateData()
 	Data.bossChara.offsetTop = 50.0f;
 	Data.bossChara.offsetRight = 50.0f;
 	Data.bossChara.offsetBottom = 50.0f;
+	Data.boss.elapsedTime = 0;
+	Data.boss.interval = 0.025f;
+	Data.boss.triggerCnt = 40;
+	Data.boss.triggerInterval = 80;
+	Data.boss.trigger1st = 40;
+	Data.boss.trigger2nd = 50;
+	Data.boss.trigger3rd = 60;
+	Data.boss.trigger4th = 70;
+	Data.boss.bulletCharaId = MAP::BOSS_BULLET_ID;
+	Data.boss.damageTime = 0;
+	Data.boss.damageInterval = 5 * 0.025f;
+	Data.boss.bulletOffsetX = 20.0f;
 	Data.boss.rightAnimId = 0;
 	Data.boss.leftAnimId = 1;
 	Data.boss.jumpFlag = 0;
 	Data.boss.initVecUp = -16.0f;
 	Data.boss.initVecDown = 3.0f;
-	Data.boss.gravity = 48;
+	Data.boss.gravity = 48.0f;
 	Data.boss.bulletOffsetX = 55.0f;
 	Data.boss.damageColor = COLOR(255, 0, 0, 25);
 	Data.boss.normalColor = COLOR(255, 255, 255);
@@ -85,6 +97,7 @@ void CONTAINER::CreateData()
 	Data.bossBulletChara.offsetTop = 50;
 	Data.bossBulletChara.offsetRight = 50;
 	Data.bossBulletChara.offsetBottom = 50;
+	Data.bossBullet.gravity = 48.0f;
 
 	Data.sheepChara.charaId = MAP::SHEEP_ID;
 	Data.sheepChara.hp = 1;
@@ -140,6 +153,7 @@ void CONTAINER::LoadGraphics()
 	Data.stage.backImg = loadImage("assets\\back_wide.png");
 	Data.stage.stageClearImg = loadImage("assets\\StageClear.png");
 	Data.stage.gameOverImg = loadImage("assets\\GameOver.png");
+	Data.clear.backImg = loadImage("assets\\clear_back.png");
 
 	Data.map.blockImg = loadImage("assets\\block.png");
 	Data.map.goalImg = loadImage("assets\\goal.png");

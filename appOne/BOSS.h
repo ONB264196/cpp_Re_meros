@@ -5,6 +5,17 @@ class BOSS :
 {
 public:
     struct DATA {
+        float elapsedTime = 0;
+        float interval = 0;
+        int triggerCnt = 0;
+        int triggerInterval = 0;
+        int trigger1st = 0;
+        int trigger2nd = 0;
+        int trigger3rd = 0;
+        int trigger4th = 0;
+        float bulletOffsetX = 0;
+        char bulletCharaId = 0;
+
         int rightAnimId = 0;
         int leftAnimId = 1;
         int jumpFlag = 0;
@@ -15,8 +26,7 @@ public:
         float initVecX = 0;
         float initVecY = 0;
         float gravity = 0;
-        char bulletCharaId = 0;
-        float bulletOffsetX = 0;
+        float moveInterval = 0;
         float damageTime = 0;
         float damageInterval = 0;
         COLOR damageColor;
@@ -29,6 +39,7 @@ public:
     void create();
     void appear(float wx, float wy, float vx, float vy);
     void update();
+    void Launch();
     void ChangeColor();
     void damage();
 private:
