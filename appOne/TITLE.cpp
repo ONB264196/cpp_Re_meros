@@ -18,7 +18,7 @@ void TITLE::draw()
 	imageColor(240);
 	image(game()->container()->data().stage.backImg, 0, 0);
 	float size;
-
+	/*
 	size = 50;
 	textSize(size);
 	fill(0);
@@ -47,6 +47,7 @@ void TITLE::draw()
 	text("K......Jump  ", (width - size / 2 * 13) / 2, 430);
 	fill(255, 0, 255);
 	text("Push 'SPACE' to start", (width - size / 2 * 21) / 2, 550);
+	*/
 
 	game()->fade()->draw();
 }

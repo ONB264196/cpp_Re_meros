@@ -5,6 +5,7 @@
 #include"MAP.h"
 #include "BOSS.h"
 
+
 void BOSS::create()
 {
 	Chara = game()->container()->data().bossChara;
@@ -46,6 +47,18 @@ void BOSS::Launch()
 	}
 }
 
+ void BOSS::Algorithm()
+{
+	 srand(time(NULL));
+	 if (rand() % 2 == 0) {
+		 Chara.animId = 1 - Chara.animId;
+		 Chara.vx = -Chara.vx;
+	 }
+	 else {
+		 Chara.vy = Chara.initVecUp;
+	 }
+}
+
 void BOSS::Move()
 {
 	//落下
@@ -68,15 +81,9 @@ void BOSS::Move()
 			Boss.moveCnt == Boss.move4th ||
 			Boss.moveCnt == Boss.move5th ||
 			Boss.moveCnt == Boss.move6th) {
-			/*行動内容*/
-
+			Algorithm();
 		}
 	}
-
-
-	//ジャンプ
-
-
 }
 
 void BOSS::CollisionWithMap()

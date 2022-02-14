@@ -52,6 +52,7 @@ public:
     void appear(float wx, float wy, float vx, float vy);
     void update();
     void Launch();
+    void Algorithm();
     void ChangeColor();
     void damage();
 private:
