@@ -9,6 +9,7 @@
 #include"SHEEP.h"
 #include"CAT.h"
 #include"BOSS.h"
+#include "BOSS_BULLET.h"
 #include"SPORTS_DRINK.h"
 #include"FLYING_FISH.h"
 #include"CHARACTER_MANAGER.h"

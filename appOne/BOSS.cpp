@@ -32,9 +32,9 @@ void BOSS::update()
 
 void BOSS::Launch()
 {
-	Boss.elapsedTime += delta;
-	if (Boss.elapsedTime >= Boss.interval) {
-		Boss.elapsedTime -= Boss.interval;
+	Boss.TelapsedTime += delta;
+	if (Boss.TelapsedTime >= Boss.Tinterval) {
+		Boss.TelapsedTime -= Boss.Tinterval;
 		++Boss.triggerCnt %= Boss.triggerInterval;
 		if (Boss.triggerCnt == Boss.trigger1st ||
 			Boss.triggerCnt == Boss.trigger2nd ||
@@ -44,7 +44,6 @@ void BOSS::Launch()
 				Chara.wx - Boss.bulletOffsetX, Chara.wy, -1, 0);
 		}
 	}
-
 }
 
 void BOSS::Move()
@@ -58,8 +57,23 @@ void BOSS::Move()
 	Boss.curWx = Chara.wx;
 	//左右移動
 	Chara.wx += Chara.vx * (Chara.speed * delta);
-	//ランダムに反転
-		
+	//インターバルで左右移動
+	Boss.MelapsedTime += delta;
+	if (Boss.MelapsedTime >= Boss.Minterval) {
+		Boss.MelapsedTime -= Boss.Minterval;
+		++Boss.moveCnt %= Boss.moveInterval;
+		if (Boss.moveCnt == Boss.move1st ||
+			Boss.moveCnt == Boss.move2nd ||
+			Boss.moveCnt == Boss.move3rd ||
+			Boss.moveCnt == Boss.move4th ||
+			Boss.moveCnt == Boss.move5th ||
+			Boss.moveCnt == Boss.move6th) {
+			/*行動内容*/
+
+		}
+	}
+
+
 	//ジャンプ
 
 

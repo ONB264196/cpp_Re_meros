@@ -67,8 +67,8 @@ void CONTAINER::CreateData()
 	Data.bossChara.offsetTop = 50.0f;
 	Data.bossChara.offsetRight = 50.0f;
 	Data.bossChara.offsetBottom = 50.0f;
-	Data.boss.elapsedTime = 0;
-	Data.boss.interval = 0.025f;
+	Data.boss.TelapsedTime = 0;
+	Data.boss.Tinterval = 0.025f;
 	Data.boss.triggerCnt = 40;
 	Data.boss.triggerInterval = 80;
 	Data.boss.trigger1st = 40;
@@ -82,6 +82,16 @@ void CONTAINER::CreateData()
 	Data.boss.rightAnimId = 0;
 	Data.boss.leftAnimId = 1;
 	Data.boss.jumpFlag = 0;
+	/*çsìÆÉAÉãÉSÉäÉYÉÄ*/
+	Data.boss.MelapsedTime = 0;
+	Data.boss.Minterval = 0;
+	Data.boss.moveCnt = 0;
+	Data.boss.move1st = 0;
+	Data.boss.move2nd = 0;
+	Data.boss.move3rd = 0;
+	Data.boss.move4th = 0;
+	Data.boss.move5th = 0;
+	Data.boss.move6th = 0;
 	Data.boss.initVecUp = -16.0f;
 	Data.boss.initVecDown = 3.0f;
 	Data.boss.gravity = 48.0f;
@@ -154,6 +164,10 @@ void CONTAINER::LoadGraphics()
 	Data.stage.stageClearImg = loadImage("assets\\StageClear.png");
 	Data.stage.gameOverImg = loadImage("assets\\GameOver.png");
 	Data.clear.backImg = loadImage("assets\\clear_back.png");
+	Data.clear.SImg = loadImage("assets\\clear_S.png");
+	Data.clear.AImg = loadImage("assets\\clear_A.png");
+	Data.clear.BImg = loadImage("assets\\clear_B.png");
+	Data.clear.CImg = loadImage("assets\\clear_C.png");
 
 	Data.map.blockImg = loadImage("assets\\block.png");
 	Data.map.goalImg = loadImage("assets\\goal.png");

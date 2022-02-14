@@ -5,8 +5,8 @@ class BOSS :
 {
 public:
     struct DATA {
-        float elapsedTime = 0;
-        float interval = 0;
+        float TelapsedTime = 0;
+        float Tinterval = 0;
         int triggerCnt = 0;
         int triggerInterval = 0;
         int trigger1st = 0;
@@ -18,15 +18,27 @@ public:
 
         int rightAnimId = 0;
         int leftAnimId = 1;
+
         int jumpFlag = 0;
         int fallFlag = 0;
+
         float curWx = 0;
         float initVecUp = 0;
         float initVecDown = 0;
         float initVecX = 0;
         float initVecY = 0;
         float gravity = 0;
-        float moveInterval = 0;
+        float MelapsedTime = 0;
+        float Minterval = 0;
+        int moveCnt = 0;
+        int moveInterval = 0;
+        int move1st = 0;
+        int move2nd = 0;
+        int move3rd = 0;
+        int move4th = 0;
+        int move5th = 0;
+        int move6th = 0;
+
         float damageTime = 0;
         float damageInterval = 0;
         COLOR damageColor;
