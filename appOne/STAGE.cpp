@@ -49,6 +49,10 @@ void STAGE::BackGround()
 	imageColor(Stage.backColor);
 	image(Stage.backImg, 0, 0);
 	Stage.time -= delta;
+	float size = 20;
+	textSize(size);
+	fill(0);
+	text((int)Stage.time, 1020, 20);
 }
 
 void STAGE::Logo(int img, const COLOR& color)
@@ -61,10 +65,5 @@ void STAGE::Logo(int img, const COLOR& color)
 void STAGE::nextScene()
 {
 	if (Stage.backToTitleTime <= 0) game()->fade()->outTrigger();
-	if (game()->characterManager()->player()->survived() || game()->fade()->outEndFlag()) {
-		game()->setCurScene(game()->clear());
-	}
-	else {
-		(game()->setCurScene(game()->title()));
-	}
+	if (game()->fade()->outEndFlag()) game()->setCurScene(game()->clear());
 }

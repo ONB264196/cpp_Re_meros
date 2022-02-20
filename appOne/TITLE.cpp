@@ -18,36 +18,34 @@ void TITLE::draw()
 	imageColor(240);
 	image(game()->container()->data().stage.backImg, 0, 0);
 	float size;
-	/*
+	
+	size = 70;
+	textSize(size);
+	fill(15, 5, 5);
+	text("Re：走れメロス", width / 2 - size * 3.5f + 2, height / 2 - size * 2 + 2);
 	size = 50;
 	textSize(size);
-	fill(0);
-	text("クッキー王子の", (width - size * 7) / 2 + 2, 80 + 2);
-	size = 90;
+	fill(5, 5, 15);
+	text("'SPACE'でスタート", width / 2 - size * 4.25f + 2, height / 2 + 2);
+	size = 35;
 	textSize(size);
-	text("お菓子なハロウィン", (width - size * 9) / 2 + 2, 185 + 2);
-	size = 50;
-	textSize(size);
-	text("A⇔D...Move  ", (width - size / 2 * 13) / 2 + 2, 290 + 2);
-	text("J......Launch", (width - size / 2 * 13) / 2 + 2, 360 + 2);
-	text("K......Jump  ", (width - size / 2 * 13) / 2 + 2, 430 + 2);
-	text("Push 'SPACE' to start", (width - size / 2 * 21) / 2 + 2, 550 + 2);
+	text("左右移動・・・'A' or '←' ⇔ 'D' or '→'", size * 5 + 1, height - size * 6 + 1);
+	text("ジャンプ・・・'W' or 'K' or '↓'", size * 5 + 1, height - size * 4 + 1);
+	text(" 投げる ・・・'S' or 'J' or '↑'", size * 5 + 1, height - size * 2 + 1);
 
+	size = 70;
+	textSize(size);
+	fill(225, 75, 60);
+	text("Re：走れメロス", width / 2 - size * 3.5f, height / 2 - size * 2);
 	size = 50;
 	textSize(size);
-	fill(255, 255, 0);
-	text("クッキー王子の", (width - size * 7) / 2, 80);
-	size = 90;
+	fill(31, 30, 51);
+	text("'SPACE'でスタート", width / 2 - size * 4.25f, height / 2);
+	size = 35;
 	textSize(size);
-	text("お菓子なハロウィン", (width - size * 9) / 2, 185);
-	size = 50;
-	textSize(size);
-	text("A⇔D...Move  ", (width - size / 2 * 13) / 2, 290);
-	text("J......Launch", (width - size / 2 * 13) / 2, 360);
-	text("K......Jump  ", (width - size / 2 * 13) / 2, 430);
-	fill(255, 0, 255);
-	text("Push 'SPACE' to start", (width - size / 2 * 21) / 2, 550);
-	*/
+	text("左右移動・・・'A' or '←' ⇔ 'D' or '→'", size * 5, height - size * 6);
+	text("ジャンプ・・・'W' or 'K' or '↓'", size * 5, height - size * 4);
+	text(" 投げる ・・・'S' or 'J' or '↑'", size * 5, height - size * 2);
 
 	game()->fade()->draw();
 }

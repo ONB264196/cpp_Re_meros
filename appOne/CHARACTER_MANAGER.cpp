@@ -3,6 +3,10 @@
 #include"CHARACTER.h"
 #include"PLAYER.h"
 #include"PLAYER_BULLET.h"
+#include"CAT.h"
+#include"SHEEP.h"
+#include"SPORTS_DRINK.h"
+#include"FLYING_FISH.h"
 #include"BOSS_BULLET.h"
 #include"CHARACTER_MANAGER.h"
 
@@ -78,27 +82,6 @@ void CHARACTER_MANAGER::update()
 		}
 	}
 
-	//for (int i = 0; i < Total - 1; i++) {
-	//	if (Characters[i]->hp() == 0) {
-	//		continue;
-	//	}
-	//	for (int j = i + 1; j < Total; j++) {
-	//		if (Characters[j]->hp() == 0) {
-	//			continue;
-	//		}
-	//		if (Characters[i]->groupId() == Characters[j]->groupId()) {
-	//			continue;
-	//		}
-	//		if (Characters[i]->wLeft() < Characters[j]->wRight() &&
-	//			Characters[j]->wLeft() < Characters[i]->wRight() &&
-	//			Characters[i]->wTop() < Characters[j]->wBottom() &&
-	//			Characters[j]->wTop() < Characters[i]->wBottom()) {
-	//			//“–‚½‚Á‚½
-	//			Characters[i]->damage();
-	//			Characters[j]->damage();
-	//		}
-	//	}
-	//}
 
 	for (int i = 0; i < Total - 1; i++) {
 		if (Characters[i]->hp() == 0) {

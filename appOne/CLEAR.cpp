@@ -20,16 +20,16 @@ void CLEAR::draw()
 	float size;
 
 	if (game()->container()->data().player.rank == 'S') {
-		image(game()->container()->data().clear.SImg, );
+		image(game()->container()->data().clear.SImg, 0, 0);
 	}
 	else if (game()->container()->data().player.rank == 'A') {
-		image(game()->container()->data().clear.AImg, );
+		image(game()->container()->data().clear.AImg, 0, 0);
 	}
 	else if (game()->container()->data().player.rank == 'B') {
-		image(game()->container()->data().clear.BImg, );
+		image(game()->container()->data().clear.BImg, 0, 0);
 	}
 	else {
-		image(game()->container()->data().clear.CImg, );
+		image(game()->container()->data().clear.CImg, 0, 0);
 	}
 }
 

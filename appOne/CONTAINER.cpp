@@ -5,8 +5,13 @@
 CONTAINER::~CONTAINER()
 {
 	//単体アニメーションの開放
+	delete Data.catChara.anim;
+	delete Data.sheepChara.anim;
+	delete Data.sports_drinkChara.anim;
+	delete Data.flying_fishChara.anim;
 	//複数アニメーションの開放
 	delete Data.playerChara.anims;
+	delete Data.bossChara.anim;
 }
 
 void CONTAINER::load()
@@ -82,7 +87,7 @@ void CONTAINER::CreateData()
 	Data.boss.rightAnimId = 0;
 	Data.boss.leftAnimId = 1;
 	Data.boss.jumpFlag = 0;
-	/*行動アルゴリズム*/
+	
 	Data.boss.MelapsedTime = 0;
 	Data.boss.Minterval = 0.0005f;
 	Data.boss.moveCnt = 160;
@@ -152,9 +157,9 @@ void CONTAINER::CreateData()
 	Data.charaMng.numPlayers = 1;
 	Data.charaMng.numPlayerBullets = 5;
 	Data.charaMng.numBosses = 1;
-	Data.charaMng.numBossBullets = 1;
-	Data.charaMng.numSheeps = 4;
-	Data.charaMng.numCats = 4;
+	Data.charaMng.numBossBullets = 50;
+	Data.charaMng.numSheeps = 1;
+	Data.charaMng.numCats = 1;
 	Data.charaMng.numSportsDrinks = 2;
 	Data.charaMng.numFlyingFish = 2;
 }
@@ -169,12 +174,12 @@ void CONTAINER::LoadGraphics()
 	Data.clear.AImg = loadImage("assets\\clear_A.png");
 	Data.clear.BImg = loadImage("assets\\clear_B.png");
 	Data.clear.CImg = loadImage("assets\\clear_C.png");
+	
 
 	Data.map.blockImg = loadImage("assets\\block.png");
-	Data.map.goalImg = loadImage("assets\\goal.png");
 
 	Data.playerBulletChara.img = loadImage("assets\\playerBullet.png");
-
+	Data.bossBulletChara.img = loadImage("assets\\bossBullet.png");
 
 	//ANIMS
 	Data.playerChara.anims = new ANIMS("assets\\player");
@@ -185,10 +190,16 @@ void CONTAINER::LoadGraphics()
 
 
 	//ANIM
-	//Data.batChara.anim = new ANIM("assets\\bat\\0");
-	//Data.batChara.animData.interval = 0.1f;
+	Data.catChara.anim = new ANIM("assets\\cat\\0");
+	Data.catChara.animData.interval = 0.1f;
+
+	Data.sheepChara.anim = new ANIM("assets\\sheep\\0");
+	Data.sheepChara.animData.interval = 0.1f;
+
+	Data.sports_drinkChara.anim = new ANIM("assets\\sportsDrink\\0");
+	Data.sports_drinkChara.animData.interval = 0.1f;
+
+	Data.flying_fishChara.anim = new ANIM("assets\\flyingFish\\0");
+	Data.flying_fishChara.animData.interval = 0.1f;
 	
-	//Data.explosionChara.anim = new ANIM("assets\\explosion\\0");
-	//Data.explosionChara.anim->noLoop();
-	//Data.explosionChara.animData.interval = 0.032f;
 }
