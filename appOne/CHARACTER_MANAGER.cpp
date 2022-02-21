@@ -111,6 +111,7 @@ void CHARACTER_MANAGER::update()
 				Characters[i]->wTop() < Characters[j]->wBottom() &&
 				Characters[j]->wTop() < Characters[i]->wBottom()) {
 				//プレイヤーとボス
+				
 				if (Characters[i]->groupId() == 0 && Characters[j]->groupId() == 1 ||
 					Characters[i]->groupId() == 1 && Characters[j]->groupId() == 0) {
 					Characters[i]->damage();

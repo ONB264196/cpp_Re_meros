@@ -46,15 +46,16 @@ void PLAYER::Move()
 {
 	//ジャンプ
 	if (Player.jumpFlag == 0) {
-		if (isTrigger(KEY_UP) || isTrigger(KEY_K) || isTrigger(KEY_W)){
-		Chara.vy = Chara.initVecUp;
-		Player.jumpFlag = 1; }
+		if (isTrigger(KEY_UP) || isTrigger(KEY_K) || isTrigger(KEY_W)) {
+			Chara.vy = Chara.initVecUp;
+			Player.jumpFlag = 1;
+		}
 	}
 	if (Player.jumpFlag == 1) {
 		Chara.vy += Player.gravity * delta;
 		Chara.wy += Chara.vy * 60 * delta;
 	}
-	
+
 	//左右移動
 	Chara.vx = 0.0f;
 	if (isPress(KEY_A) || isPress(KEY_LEFT)) {
@@ -65,7 +66,7 @@ void PLAYER::Move()
 		Chara.vx = Chara.speed * delta;
 		Chara.animId = Player.rightAnimId;
 	}
-	//移動前の位置を保存→( ※1 マップに食い込んでいたら保存してある更新前の位置に戻す)
+	//移動前の位置を保存
 	Player.curWx = Chara.wx;
 	if (Chara.vx != 0.0f) {
 		Chara.wx += Chara.vx;

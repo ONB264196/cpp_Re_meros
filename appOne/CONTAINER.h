@@ -4,7 +4,6 @@
 #include"CLEAR.h"
 #include"FADE.h"
 #include"MAP.h"
-#include"RANK.h"
 #include"PLAYER.h"
 #include"SHEEP.h"
 #include"CAT.h"

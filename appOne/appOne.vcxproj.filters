@@ -104,7 +104,6 @@
     <ClCompile Include="CLEAR.cpp">
       <Filter>scene</Filter>
     </ClCompile>
-    <ClCompile Include="RANK.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GAME.h">
@@ -170,7 +169,6 @@
     <ClInclude Include="CLEAR.h">
       <Filter>scene</Filter>
     </ClInclude>
-    <ClInclude Include="RANK.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="map.txt">

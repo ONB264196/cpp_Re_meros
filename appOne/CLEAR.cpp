@@ -17,7 +17,6 @@ void CLEAR::draw()
 	clear();
 	rectMode(CORNER);
 	image(game()->container()->data().clear.backImg, 0, 0);
-	float size;
 
 	if (game()->container()->data().player.rank == 'S') {
 		image(game()->container()->data().clear.SImg, 0, 0);

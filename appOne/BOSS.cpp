@@ -49,7 +49,7 @@ void BOSS::Launch()
 
  void BOSS::Algorithm()
 {
-	 srand(time(NULL));
+	 srand((unsigned)time(NULL));
 	 if (rand() % 2 == 0) {
 		 Chara.animId = 1 - Chara.animId;
 		 Chara.vx = -Chara.vx;

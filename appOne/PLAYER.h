@@ -37,5 +37,6 @@ public:
     bool survived();
     char rank(int hp, int d, int db);
     float overCenterVx();
+    
 };
 

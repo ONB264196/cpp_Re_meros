@@ -38,9 +38,10 @@ void CONTAINER::CreateData()
 	Data.map.centerX = width / 2 - Data.map.chipSize / 2;
 
 	Data.playerChara.charaId = MAP::PLAYER_ID;
-	Data.playerChara.hp = 1;
+	Data.playerChara.hp = 5;
 	Data.playerChara.groupId = 0;
 	Data.playerChara.speed = 3.4f * 60;
+	Data.playerChara.initVecUp = -16.0f;
 	Data.playerChara.offsetLeft = 10.0f;
 	Data.playerChara.offsetTop = 1.0f;
 	Data.playerChara.offsetRight = 40.0f;
@@ -49,7 +50,7 @@ void CONTAINER::CreateData()
 	Data.player.leftAnimId = 1;
 	Data.player.jumpFlag = 0;
 	Data.player.initVecDown = 3.0f;
-	Data.player.gravity = 48.0f;
+	Data.player.gravity = 48;
 	Data.player.bulletOffsetX = 20.0f;
 	Data.player.bulletCharaId = MAP::PLAYER_BULLET_ID;
 	Data.player.damageCount = 0;
