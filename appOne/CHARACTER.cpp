@@ -77,10 +77,13 @@ void CHARACTER::debuff(char Id)
 	//ヒツジ
 	//インターバルで管理(3秒)
 	if (Id == 'c') {
+		float elapsedTime = 0;
 		Chara.speed = game()->container()->data().playerChara.speed;
-		Chara.speed *= game()->container()->data().sheep.debuffPower;
-		Chara.elapsedTime += delta;
-		if (Chara.elapsedTime <= game()->container()->data().sheep.interval == Chara.elapsedTime) {
+		Chara.initVecUp = game()->container()->data().playerChara.initVecUp;
+
+		Chara.speed *= game()->container()->data().sheep.debuffPower;;
+		elapsedTime += delta;
+		if (elapsedTime >= game()->container()->data().sheep.duration) {
 			Chara.speed = game()->container()->data().playerChara.speed;
 		}
 	}
@@ -89,15 +92,16 @@ void CHARACTER::debuff(char Id)
 	else if (Id == 'd') {
 		Chara.speed = game()->container()->data().playerChara.speed;
 		Chara.initVecUp = game()->container()->data().playerChara.initVecUp;
+
 		Chara.speed *= game()->container()->data().cat.debuffPower;
 		Chara.initVecUp *= game()->container()->data().cat.debuffPower;
 		int count = game()->container()->data().cat.keyCount;
-		if (isTrigger(KEY_A) || isTrigger(KEY_D) ||
-			isTrigger(KEY_LEFT) || isTrigger(KEY_RIGHT)) {
-			count++;
+		while (count <= game()->container()->data().cat.buttonMash) {
+			if (isTrigger(KEY_A) || isTrigger(KEY_D) ||
+				isTrigger(KEY_LEFT) || isTrigger(KEY_RIGHT)) {
+				count++;
+			}
 		}
-		if (count == game()->container()->data().cat.buttonMash) {
-			Chara.speed = game()->container()->data().playerChara.speed;
-		}
+		Chara.speed = game()->container()->data().playerChara.speed;
 	}
 }

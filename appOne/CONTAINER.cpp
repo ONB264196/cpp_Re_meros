@@ -1,4 +1,5 @@
 #include"graphic.h"
+#include"sound.h"
 #include "CONTAINER.h"
 #include"ANIMS.h"
 
@@ -40,7 +41,7 @@ void CONTAINER::CreateData()
 	Data.playerChara.charaId = MAP::PLAYER_ID;
 	Data.playerChara.hp = 5;
 	Data.playerChara.groupId = 0;
-	Data.playerChara.speed = 3.4f * 60;
+	Data.playerChara.speed = 3.4f * 120;
 	Data.playerChara.initVecUp = -16.0f;
 	Data.playerChara.offsetLeft = 10.0f;
 	Data.playerChara.offsetTop = 1.0f;
@@ -60,19 +61,19 @@ void CONTAINER::CreateData()
 	Data.playerBulletChara.groupId = 0; 
 	Data.playerBulletChara.hp = 1;
 	Data.playerBulletChara.speed = 23.5f * 60;
-	Data.playerBulletChara.offsetLeft = 20.0f;
-	Data.playerBulletChara.offsetTop = 20.0f;
-	Data.playerBulletChara.offsetRight = 30.0f;
-	Data.playerBulletChara.offsetBottom = 30.0f;
+	Data.playerBulletChara.offsetLeft = 25.0f;
+	Data.playerBulletChara.offsetTop = 25.0f;
+	Data.playerBulletChara.offsetRight = 25.0f;
+	Data.playerBulletChara.offsetBottom = 25.0f;
 
 	Data.bossChara.charaId = MAP::BOSS_ID;
-	Data.bossChara.hp = 30;
+	Data.bossChara.hp = 1;
 	Data.bossChara.groupId = 1;
 	Data.bossChara.speed = 23.5f * 60;
-	Data.bossChara.offsetLeft = 50.0f;
-	Data.bossChara.offsetTop = 50.0f;
-	Data.bossChara.offsetRight = 50.0f;
-	Data.bossChara.offsetBottom = 50.0f;
+	Data.bossChara.offsetLeft = 25.0f;
+	Data.bossChara.offsetTop = 25.0f;
+	Data.bossChara.offsetRight = 25.0f;
+	Data.bossChara.offsetBottom = 25.0f;
 	Data.boss.TelapsedTime = 0;
 	Data.boss.Tinterval = 0.04f;
 	Data.boss.triggerCnt = 5;
@@ -109,30 +110,32 @@ void CONTAINER::CreateData()
 	Data.bossBulletChara.charaId = MAP::BOSS_BULLET_ID;
 	Data.bossBulletChara.groupId = 1;
 	Data.bossBulletChara.hp = 1;
-	Data.bossBulletChara.speed = 4.7f * 60;
-	Data.bossBulletChara.offsetLeft = 50;
-	Data.bossBulletChara.offsetTop = 50;
-	Data.bossBulletChara.offsetRight = 50;
-	Data.bossBulletChara.offsetBottom = 50;
+	Data.bossBulletChara.speed = 15.7 * 60;
+	Data.bossBulletChara.offsetLeft = 25.0f;
+	Data.bossBulletChara.offsetTop = 25.0f;
+	Data.bossBulletChara.offsetRight = 25.0f;
+	Data.bossBulletChara.offsetBottom = 25.0f;
 	Data.bossBullet.gravity = 48.0f;
 
 	Data.sheepChara.charaId = MAP::SHEEP_ID;
 	Data.sheepChara.hp = 1;
 	Data.sheepChara.groupId = 3;
-	Data.sheepChara.offsetLeft = 50;
-	Data.sheepChara.offsetRight = 50;
-	Data.sheepChara.offsetTop = 50;
-	Data.sheepChara.offsetBottom = 50;
+	Data.sheepChara.offsetLeft = 25.0f;
+	Data.sheepChara.offsetRight = 25.0f;
+	Data.sheepChara.offsetTop = 25.0f;
+	Data.sheepChara.offsetBottom = 25.0f;
+	Data.sheep.duration = 5.0f;
 	Data.sheep.debuffPower = 0.5f;
 	Data.sheep.interval = 3.0f;
 	
 	Data.catChara.charaId = MAP::CAT_ID;
 	Data.catChara.hp = 1;
 	Data.catChara.groupId = 3;
-	Data.catChara.offsetLeft = 50;
-	Data.catChara.offsetRight = 50;
-	Data.catChara.offsetTop = 50;
-	Data.catChara.offsetBottom = 50;
+	Data.catChara.offsetLeft = 25.0f;
+	Data.catChara.offsetRight = 25.0f;
+	Data.catChara.offsetTop = 25.0f;
+	Data.catChara.offsetBottom = 25.0f;
+	Data.cat.duration = 30.0f;
 	Data.cat.debuffPower = 0;
 	Data.cat.keyCount = 0;
 	Data.cat.buttonMash = 30;
@@ -140,25 +143,25 @@ void CONTAINER::CreateData()
 	Data.sports_drinkChara.charaId = MAP::SPORTS_DRINK_ID;
 	Data.sports_drinkChara.hp = 1;
 	Data.sports_drinkChara.groupId = 2;
-	Data.sports_drinkChara.offsetLeft = 50; 
-	Data.sports_drinkChara.offsetRight = 50;
-	Data.sports_drinkChara.offsetTop = 50;
-	Data.sports_drinkChara.offsetBottom = 50;
-	Data.sports_drink.buffPower = 1.5f;
+	Data.sports_drinkChara.offsetLeft = 25.0f;
+	Data.sports_drinkChara.offsetRight = 25.0f;
+	Data.sports_drinkChara.offsetTop = 25.0f;
+	Data.sports_drinkChara.offsetBottom = 25.0f;
+	Data.sports_drink.buffPower = 1.414f;
 
 	Data.flying_fishChara.charaId = MAP::FLYING_FISH_ID;
 	Data.flying_fishChara.hp = 1;
 	Data.flying_fishChara.groupId = 2;
-	Data.flying_fishChara.offsetLeft = 50;
-	Data.flying_fishChara.offsetRight = 50;
-	Data.flying_fishChara.offsetTop = 50;
-	Data.flying_fishChara.offsetBottom = 50;
-	Data.flying_fish.buffPower = 1.3f;
+	Data.flying_fishChara.offsetLeft = 25.0f;
+	Data.flying_fishChara.offsetRight = 25.0f;
+	Data.flying_fishChara.offsetTop = 25.0f;
+	Data.flying_fishChara.offsetBottom = 25.0f;
+	Data.flying_fish.buffPower = 1.1f;
 
 	Data.charaMng.numPlayers = 1;
 	Data.charaMng.numPlayerBullets = 5;
 	Data.charaMng.numBosses = 1;
-	Data.charaMng.numBossBullets = 50;
+	Data.charaMng.numBossBullets = 1;
 	Data.charaMng.numSheeps = 1;
 	Data.charaMng.numCats = 1;
 	Data.charaMng.numSportsDrinks = 2;
@@ -203,4 +206,13 @@ void CONTAINER::LoadGraphics()
 	Data.flying_fishChara.anim = new ANIM("assets\\flyingFish\\0");
 	Data.flying_fishChara.animData.interval = 0.1f;
 	
+}
+
+void CONTAINER::LoadSound()
+{
+	//wav・awm形式のみ再生可能
+	//int snd = loadSound("ファイル名");
+	//playSound(snd);
+	//playLoopSound(snd);
+	//この他関数はヘッダー参照
 }

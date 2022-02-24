@@ -41,12 +41,12 @@ void CHARACTER_MANAGER::create()
 
 	Player = new PLAYER(game());
 	int i, j = 0;
-	for (i = 0; i < CharaMag.numPlayers; i++)       Characters[j++] = Player;
+	for (i = 0; i < CharaMag.numPlayers; i++) Characters[j++] = Player;
 	for (i = 0; i < CharaMag.numPlayerBullets; i++) Characters[j++] = new PLAYER_BULLET(game());
-	for (i = 0; i < CharaMag.numBosses; i++)      Characters[j++] = new BOSS(game());
-	for (i = 0; i < CharaMag.numBossBullets; i++)          Characters[j++] = new BOSS_BULLET(game());
-	for (i = 0; i < CharaMag.numCats; i++)    Characters[j++] = new CAT(game());
-	for (i = 0; i < CharaMag.numSheeps; i++)     Characters[j++] = new SHEEP(game());
+	for (i = 0; i < CharaMag.numBosses; i++) Characters[j++] = new BOSS(game());
+	for (i = 0; i < CharaMag.numBossBullets; i++) Characters[j++] = new BOSS_BULLET(game());
+	for (i = 0; i < CharaMag.numCats; i++) Characters[j++] = new CAT(game());
+	for (i = 0; i < CharaMag.numSheeps; i++) Characters[j++] = new SHEEP(game());
 	for (i = 0; i < CharaMag.numSportsDrinks; i++) Characters[j++] = new SPORTS_DRINK(game());
 	for (i = 0; i < CharaMag.numFlyingFish; i++) Characters[j++] = new FLYING_FISH(game());
 
@@ -111,7 +111,6 @@ void CHARACTER_MANAGER::update()
 				Characters[i]->wTop() < Characters[j]->wBottom() &&
 				Characters[j]->wTop() < Characters[i]->wBottom()) {
 				//プレイヤーとボス
-				
 				if (Characters[i]->groupId() == 0 && Characters[j]->groupId() == 1 ||
 					Characters[i]->groupId() == 1 && Characters[j]->groupId() == 0) {
 					Characters[i]->damage();
@@ -141,14 +140,24 @@ void CHARACTER_MANAGER::update()
 				}
 				//プレイヤーとデバフキャラ
 				else if (Characters[i]->charaId() == 'a' && Characters[j]->groupId() == 3 ||
-						 Characters[i]->groupId() == 3 && Characters[j]->charaId() == 'a') {
+					Characters[i]->groupId() == 3 && Characters[j]->charaId() == 'a') {
 					if (Characters[i]->groupId() == 3) {
-						if (Characters[i]->charaId() == 'c')Characters[j]->debuff('c');
-						else Characters[j]->debuff('d');
+						if (Characters[i]->charaId() == 'c') {
+							Characters[j]->debuff('c');
+						}
+						else {
+							Characters[j]->debuff('d');
+						}
+						Characters[i]->damage();
 					}
 					else {
-						if (Characters[j]->charaId() == 'c')Characters[i]->debuff('c');
-						else Characters[i]->debuff('d');
+						if (Characters[j]->charaId() == 'c') {
+							Characters[i]->debuff('c');
+						}
+						else {
+							Characters[i]->debuff('d');
+						}
+						Characters[j]->damage();
 					}
 				}
 			}

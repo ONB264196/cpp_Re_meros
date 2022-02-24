@@ -42,6 +42,7 @@ private:
 	DATA Data;
 	void CreateData();
 	void LoadGraphics();
+	void LoadSound();
 public:
 	~CONTAINER();
 	void load();
