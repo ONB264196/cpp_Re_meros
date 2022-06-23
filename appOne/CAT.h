@@ -12,10 +12,7 @@ public:
         float initVecX = 0;
         float initVecY = 0;
         float gravity = 0;
-        float duration = 0;
         float debuffPower = 0;
-        int keyCount = 0;
-        int buttonMash = 0;
     };
 private:
     DATA Cat;

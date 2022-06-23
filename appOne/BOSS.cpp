@@ -9,7 +9,7 @@
 void BOSS::create()
 {
 	Chara = game()->container()->data().bossChara;
-	Boss = game()->container()->data().boss;	
+	Boss = game()->container()->data().boss;
 }
 
 void BOSS::appear(float wx, float wy, float vx, float vy)
@@ -41,22 +41,28 @@ void BOSS::Launch()
 			Boss.triggerCnt == Boss.trigger2nd ||
 			Boss.triggerCnt == Boss.trigger3rd ||
 			Boss.triggerCnt == Boss.trigger4th) {
-			game()->characterManager()->appear(Boss.bulletCharaId,
-				Chara.wx - Boss.bulletOffsetX, Chara.wy, -1, 0);
+			float vx = 1.0f;
+			if (Chara.animId == Boss.leftAnimId) vx = -1.0f;
+			float wx = Chara.wx + Boss.bulletOffsetX * vx;
+			float wy = Chara.wy;
+			game()->characterManager()->appear(Boss.bulletCharaId, wx, wy, vx);
 		}
 	}
 }
 
- void BOSS::Algorithm()
+void BOSS::Algorithm()
 {
-	 srand((unsigned)time(NULL));
-	 if (rand() % 2 == 0) {
-		 Chara.animId = 1 - Chara.animId;
-		 Chara.vx = -Chara.vx;
-	 }
-	 else {
-		 Chara.vy = Chara.initVecUp;
-	 }
+	if (rand() % 2 == 0) {
+		Chara.vx = game()->container()->data().bossChara.speed * delta;
+		Chara.animId = 1 - Chara.animId;
+		Chara.vx = -Chara.vx;
+	}
+	else {
+		if (rand() % 2 == 0) {
+			Chara.vy = Chara.initVecUp;
+			Boss.jumpFlag = 1;
+		}
+	}
 }
 
 void BOSS::Move()
@@ -83,6 +89,11 @@ void BOSS::Move()
 			Boss.moveCnt == Boss.move6th) {
 			Algorithm();
 		}
+	}
+	//ƒWƒƒƒ“ƒv
+	if (Boss.jumpFlag == 1) {
+		Chara.vy += Boss.gravity * delta;
+		Chara.wy += Chara.vy * 60 * delta;
 	}
 }
 
@@ -120,7 +131,6 @@ void BOSS::ChangeColor()
 	else {
 		Chara.color = Boss.normalColor;
 	}
-
 }
 
 void BOSS::damage()
@@ -129,8 +139,9 @@ void BOSS::damage()
 		Boss.damageTime = Boss.damageInterval;
 		Chara.hp--;
 		if (Chara.hp == 0) {
-			
+			if (1);
+				game()->player()->State = PLAYER::STATE::SURVIVED;
+				game()->player()->update();
 		}
 	}
-
 }

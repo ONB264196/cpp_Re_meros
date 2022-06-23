@@ -1,5 +1,5 @@
 #pragma once
-#include "CHARACTER.h"
+#include"CHARACTER.h"
 class PLAYER :
     public CHARACTER
 {
@@ -13,14 +13,12 @@ public:
         float gravity = 0;
         char bulletCharaId = 0;
         float bulletOffsetX = 0;
-        int damageCount = 0;
-        int debuffCount = 0;
-        char rank = 0;
     };
+    char r = 'C';
+    enum class STATE { STRUGGLING, DIED, FALL, SURVIVED };
+    STATE State = STATE::STRUGGLING;
 private:
     DATA Player;
-    enum class STATE {STRUGGLING, DIED, FALL, SURVIVED };
-    STATE State = STATE::STRUGGLING;
 public:
     PLAYER(class GAME* game) : CHARACTER(game) {}
     void create();
@@ -30,13 +28,11 @@ private:
         void Launch();
         void Move();
         void CollisionWithMap();
-        void CheckState();
 public:
+    void CheckState();
     void damage();
+    void evaluation();
     bool died();
     bool survived();
-    char rank(int hp, int d, int db);
     float overCenterVx();
-    
 };
-

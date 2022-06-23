@@ -1,5 +1,5 @@
+#include"window.h"
 #include"graphic.h"
-#include"input.h"
 #include"GAME.h"
 #include"CONTAINER.h"
 #include"STAGE.h"
@@ -10,34 +10,24 @@
 void CLEAR::init()
 {
 	game()->fade()->inTrigger();
+	Clear.backToTitleTime = game()->container()->data().clear.backToTitleTime;
 }
 
 void CLEAR::draw()
 {
 	clear();
 	rectMode(CORNER);
+	colorMode(RGB);
+	imageColor(255);
 	image(game()->container()->data().clear.backImg, 0, 0);
 
-	if (game()->container()->data().player.rank == 'S') {
-		image(game()->container()->data().clear.SImg, 0, 0);
-	}
-	else if (game()->container()->data().player.rank == 'A') {
-		image(game()->container()->data().clear.AImg, 0, 0);
-	}
-	else if (game()->container()->data().player.rank == 'B') {
-		image(game()->container()->data().clear.BImg, 0, 0);
-	}
-	else {
-		image(game()->container()->data().clear.CImg, 0, 0);
-	}
+	game()->rank()->dispRank(game()->player()->r);
+	Clear.backToTitleTime -= delta;
+	game()->fade()->draw();
 }
 
 void CLEAR::nextScene()
 {
-	if (isTrigger(KEY_SPACE)) {
-		game()->fade()->outTrigger();
-	}
-	if (game()->fade()->outEndFlag()) {
-		game()->setCurScene(game()->title());
-	}
+	if (Clear.backToTitleTime <= 0) game()->fade()->outTrigger();
+	if (game()->fade()->outEndFlag()) game()->setCurScene(game()->title());
 }

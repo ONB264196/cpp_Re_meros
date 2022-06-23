@@ -6,6 +6,8 @@
 #include"GAME.h"
 #include"MAP.h"
 #include"PLAYER.h"
+#include"CHARACTER.h"
+
 
 void PLAYER::create()
 {
@@ -33,7 +35,7 @@ void PLAYER::update()
 
 void PLAYER::Launch()
 {
-	if (isPress(KEY_J) || isPress(KEY_S) || isPress(KEY_DOWN)) {
+	if (isTrigger(KEY_J) || isTrigger(KEY_S) || isTrigger(KEY_DOWN)) {
 		float vx = 1.0f;
 		if (Chara.animId == Player.leftAnimId) vx = -1.0f;
 		float wx = Chara.wx + Player.bulletOffsetX * vx;
@@ -111,28 +113,37 @@ void PLAYER::CheckState()
 {
 	//落下
 	if (Chara.wy > height + game()->map()->chipSize()) {
-		State = STATE::FALL;
+		game()->player()->State = STATE::FALL;
 		Chara.hp = 0;
-		return;
+		game()->stage()->draw();
 	}
-	//ステージクリア
-	if (Chara.wx > game()->map()->wDispRight()) {
-		State = STATE::SURVIVED;
-		rank(game()->container()->data().playerChara.hp, Player.damageCount, Player.debuffCount);
+	//ステージクリア	
+	if (State == STATE::SURVIVED) {
+		if (1);
+		evaluation();
 		Chara.hp = 0;
+		game()->stage()->draw();
 	}
+	
 }
 
 void PLAYER::damage()
 {
 	if (Chara.hp > 0) {
 		Chara.hp--;
-		Player.damageCount++;
 		if (Chara.hp == 0) {
 			State = STATE::DIED;
 			Chara.vy = Chara.initVecUp;
 		}
 	}
+}
+
+void PLAYER::evaluation()
+{	
+	if (Chara.hp == game()->container()->data().playerChara.hp && Chara.debufCount == 0) game()->player()->r = 'S';
+	else if (Chara.hp == game()->container()->data().playerChara.hp) game()->player()->r = 'A';
+	else if ((float)Chara.hp >= game()->container()->data().playerChara.hp / 2.0f) game()->player()->r = 'B';
+	else game()->player()->r = 'C';
 }
 
 bool PLAYER::died()
@@ -154,14 +165,6 @@ bool PLAYER::survived()
 	return State == STATE::SURVIVED;
 }
 
-char PLAYER::rank(int hp, int d, int db)
-{
-	if (hp == hp - d && db == 0) { return 'S'; }
-	else if (hp == hp - d) { return 'A'; }
-	else if (hp / d <= 2) { return 'B'; }
-	else { return 'C'; }
-}
-
 float PLAYER::overCenterVx()
 {
 	float centerWx = (game()->map()->wx() + width / 2 - game()->map()->chipSize() / 2);
@@ -169,3 +172,4 @@ float PLAYER::overCenterVx()
 	if (overCenterVx < 0 || Chara.hp == 0) overCenterVx = 0;
 	return overCenterVx;
 }
+

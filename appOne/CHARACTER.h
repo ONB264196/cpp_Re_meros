@@ -32,6 +32,7 @@ public:
 
 
         int hp = 0;
+        int debufCount = 0;
         float offsetLeft = 0;
         float offsetTop = 0;
         float offsetRight = 0;

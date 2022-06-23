@@ -75,33 +75,13 @@ void CHARACTER::buff(char Id)
 void CHARACTER::debuff(char Id)
 {
 	//ヒツジ
-	//インターバルで管理(3秒)
 	if (Id == 'c') {
-		float elapsedTime = 0;
-		Chara.speed = game()->container()->data().playerChara.speed;
-		Chara.initVecUp = game()->container()->data().playerChara.initVecUp;
-
-		Chara.speed *= game()->container()->data().sheep.debuffPower;;
-		elapsedTime += delta;
-		if (elapsedTime >= game()->container()->data().sheep.duration) {
-			Chara.speed = game()->container()->data().playerChara.speed;
-		}
+		Chara.speed = game()->container()->data().playerChara.speed / game()->container()->data().sheep.debuffPower;
+		Chara.debufCount++;
 	}
-	//猫
-	//レバガチャで管理(30回)
+	//ネコ
 	else if (Id == 'd') {
-		Chara.speed = game()->container()->data().playerChara.speed;
-		Chara.initVecUp = game()->container()->data().playerChara.initVecUp;
-
-		Chara.speed *= game()->container()->data().cat.debuffPower;
 		Chara.initVecUp *= game()->container()->data().cat.debuffPower;
-		int count = game()->container()->data().cat.keyCount;
-		while (count <= game()->container()->data().cat.buttonMash) {
-			if (isTrigger(KEY_A) || isTrigger(KEY_D) ||
-				isTrigger(KEY_LEFT) || isTrigger(KEY_RIGHT)) {
-				count++;
-			}
-		}
-		Chara.speed = game()->container()->data().playerChara.speed;
+		Chara.debufCount++;
 	}
 }

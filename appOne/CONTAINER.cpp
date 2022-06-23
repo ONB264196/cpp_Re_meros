@@ -23,13 +23,18 @@ void CONTAINER::load()
 
 void CONTAINER::CreateData()
 {
-	Data.stage.time = 120;
+	Data.stage.tSize = 30;
+	Data.stage.timePx = 1000.0f;
+	Data.stage.timePy = 45.0f;
+	Data.stage.remain = 40.0f;
 	Data.stage.backColor = COLOR(255, 255, 255, 255);
 	Data.stage.gameOverColor = COLOR(255, 0, 0);
 	Data.stage.stageClearColor = COLOR(255, 255, 0);
 	Data.stage.logoPx = (width - 800) / 2;
 	Data.stage.logoPy = 220;
-	Data.stage.backToTitleTime = 2;
+	Data.stage.nextToRankTime = 2.0f;
+
+	Data.clear.backToTitleTime = 6.0f;
 
 	Data.fade.color = COLOR(60, 60, 60);
 	Data.fade.speed = 255 * 2;
@@ -39,7 +44,7 @@ void CONTAINER::CreateData()
 	Data.map.centerX = width / 2 - Data.map.chipSize / 2;
 
 	Data.playerChara.charaId = MAP::PLAYER_ID;
-	Data.playerChara.hp = 5;
+	Data.playerChara.hp = 500;
 	Data.playerChara.groupId = 0;
 	Data.playerChara.speed = 3.4f * 120;
 	Data.playerChara.initVecUp = -16.0f;
@@ -51,25 +56,25 @@ void CONTAINER::CreateData()
 	Data.player.leftAnimId = 1;
 	Data.player.jumpFlag = 0;
 	Data.player.initVecDown = 3.0f;
-	Data.player.gravity = 48;
+	Data.player.gravity = 36.0f;
 	Data.player.bulletOffsetX = 20.0f;
 	Data.player.bulletCharaId = MAP::PLAYER_BULLET_ID;
-	Data.player.damageCount = 0;
-	Data.player.debuffCount = 0;
 
 	Data.playerBulletChara.charaId = MAP::PLAYER_BULLET_ID;
 	Data.playerBulletChara.groupId = 0; 
 	Data.playerBulletChara.hp = 1;
-	Data.playerBulletChara.speed = 23.5f * 60;
-	Data.playerBulletChara.offsetLeft = 25.0f;
-	Data.playerBulletChara.offsetTop = 25.0f;
-	Data.playerBulletChara.offsetRight = 25.0f;
-	Data.playerBulletChara.offsetBottom = 25.0f;
+	Data.playerBulletChara.speed = 12.5 * 120;
+	Data.playerBulletChara.offsetLeft = 10.0f;
+	Data.playerBulletChara.offsetTop = 10.0f;
+	Data.playerBulletChara.offsetRight = 40.0f;
+	Data.playerBulletChara.offsetBottom = 40.0f;
+	Data.playerBullet.gravity = 48.0f;
 
 	Data.bossChara.charaId = MAP::BOSS_ID;
-	Data.bossChara.hp = 1;
+	Data.bossChara.hp = 2;
 	Data.bossChara.groupId = 1;
-	Data.bossChara.speed = 23.5f * 60;
+	Data.bossChara.speed = 1.2f * 120;
+	Data.bossChara.initVecUp = -16.0f;
 	Data.bossChara.offsetLeft = 25.0f;
 	Data.bossChara.offsetTop = 25.0f;
 	Data.bossChara.offsetRight = 25.0f;
@@ -77,11 +82,11 @@ void CONTAINER::CreateData()
 	Data.boss.TelapsedTime = 0;
 	Data.boss.Tinterval = 0.04f;
 	Data.boss.triggerCnt = 5;
-	Data.boss.triggerInterval = 25;
-	Data.boss.trigger1st = 5;
-	Data.boss.trigger2nd = 10;
-	Data.boss.trigger3rd = 15;
-	Data.boss.trigger4th = 20;
+	Data.boss.triggerInterval = 50;
+	Data.boss.trigger1st = 20;
+	Data.boss.trigger2nd = 22;
+	Data.boss.trigger3rd = 24;
+	Data.boss.trigger4th = 26;
 	Data.boss.bulletCharaId = MAP::BOSS_BULLET_ID;
 	Data.boss.damageTime = 0;
 	Data.boss.damageInterval = 5 * 0.025f;
@@ -90,16 +95,17 @@ void CONTAINER::CreateData()
 	Data.boss.leftAnimId = 1;
 	Data.boss.jumpFlag = 0;
 	
+	//ƒ{ƒX‚ÌˆÚ“®
 	Data.boss.MelapsedTime = 0;
 	Data.boss.Minterval = 0.0005f;
 	Data.boss.moveCnt = 160;
-	Data.boss.moveInterval = 2000;
-	Data.boss.move1st = 160;
-	Data.boss.move2nd = 480;
-	Data.boss.move3rd = 640;
-	Data.boss.move4th = 1020;
-	Data.boss.move5th = 1650;
-	Data.boss.move6th = 1930;
+	Data.boss.moveInterval = 1000;
+	Data.boss.move1st = 80;
+	Data.boss.move2nd = 240;
+	Data.boss.move3rd = 320;
+	Data.boss.move4th = 510;
+	Data.boss.move5th = 825;
+	Data.boss.move6th = 965;
 	Data.boss.initVecUp = -16.0f;
 	Data.boss.initVecDown = 3.0f;
 	Data.boss.gravity = 48.0f;
@@ -110,7 +116,7 @@ void CONTAINER::CreateData()
 	Data.bossBulletChara.charaId = MAP::BOSS_BULLET_ID;
 	Data.bossBulletChara.groupId = 1;
 	Data.bossBulletChara.hp = 1;
-	Data.bossBulletChara.speed = 15.7 * 60;
+	Data.bossBulletChara.speed = 7.75 * 120;
 	Data.bossBulletChara.offsetLeft = 25.0f;
 	Data.bossBulletChara.offsetTop = 25.0f;
 	Data.bossBulletChara.offsetRight = 25.0f;
@@ -124,9 +130,7 @@ void CONTAINER::CreateData()
 	Data.sheepChara.offsetRight = 25.0f;
 	Data.sheepChara.offsetTop = 25.0f;
 	Data.sheepChara.offsetBottom = 25.0f;
-	Data.sheep.duration = 5.0f;
-	Data.sheep.debuffPower = 0.5f;
-	Data.sheep.interval = 3.0f;
+	Data.sheep.debuffPower = 0.707f;
 	
 	Data.catChara.charaId = MAP::CAT_ID;
 	Data.catChara.hp = 1;
@@ -135,10 +139,7 @@ void CONTAINER::CreateData()
 	Data.catChara.offsetRight = 25.0f;
 	Data.catChara.offsetTop = 25.0f;
 	Data.catChara.offsetBottom = 25.0f;
-	Data.cat.duration = 30.0f;
-	Data.cat.debuffPower = 0;
-	Data.cat.keyCount = 0;
-	Data.cat.buttonMash = 30;
+	Data.cat.debuffPower = 0.83f;
 
 	Data.sports_drinkChara.charaId = MAP::SPORTS_DRINK_ID;
 	Data.sports_drinkChara.hp = 1;
@@ -147,7 +148,7 @@ void CONTAINER::CreateData()
 	Data.sports_drinkChara.offsetRight = 25.0f;
 	Data.sports_drinkChara.offsetTop = 25.0f;
 	Data.sports_drinkChara.offsetBottom = 25.0f;
-	Data.sports_drink.buffPower = 1.414f;
+	Data.sports_drink.buffPower = 1.2247f;
 
 	Data.flying_fishChara.charaId = MAP::FLYING_FISH_ID;
 	Data.flying_fishChara.hp = 1;
@@ -156,12 +157,12 @@ void CONTAINER::CreateData()
 	Data.flying_fishChara.offsetRight = 25.0f;
 	Data.flying_fishChara.offsetTop = 25.0f;
 	Data.flying_fishChara.offsetBottom = 25.0f;
-	Data.flying_fish.buffPower = 1.1f;
+	Data.flying_fish.buffPower = 1.0247f;
 
 	Data.charaMng.numPlayers = 1;
-	Data.charaMng.numPlayerBullets = 5;
+	Data.charaMng.numPlayerBullets = 3;
 	Data.charaMng.numBosses = 1;
-	Data.charaMng.numBossBullets = 1;
+	Data.charaMng.numBossBullets = 4;
 	Data.charaMng.numSheeps = 1;
 	Data.charaMng.numCats = 1;
 	Data.charaMng.numSportsDrinks = 2;
@@ -174,11 +175,11 @@ void CONTAINER::LoadGraphics()
 	Data.stage.stageClearImg = loadImage("assets\\StageClear.png");
 	Data.stage.gameOverImg = loadImage("assets\\GameOver.png");
 	Data.clear.backImg = loadImage("assets\\clear_back.png");
-	Data.clear.SImg = loadImage("assets\\clear_S.png");
-	Data.clear.AImg = loadImage("assets\\clear_A.png");
-	Data.clear.BImg = loadImage("assets\\clear_B.png");
-	Data.clear.CImg = loadImage("assets\\clear_C.png");
 	
+	Data.rank.SImg = loadImage("assets\\clear_S.png");
+	Data.rank.AImg = loadImage("assets\\clear_A.png");
+	Data.rank.BImg = loadImage("assets\\clear_B.png");
+	Data.rank.CImg = loadImage("assets\\clear_C.png");	
 
 	Data.map.blockImg = loadImage("assets\\block.png");
 

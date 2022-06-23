@@ -76,12 +76,12 @@ void CHARACTER_MANAGER::appear(char charaId, float wx, float wy, float vx, float
 
 void CHARACTER_MANAGER::update()
 {
+	float time = 0;
 	for (int i = 0; i < Total; i++) {
 		if (Characters[i]->hp() > 0) {
 			Characters[i]->update();
 		}
 	}
-
 
 	for (int i = 0; i < Total - 1; i++) {
 		if (Characters[i]->hp() == 0) {

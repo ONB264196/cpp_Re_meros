@@ -5,6 +5,8 @@
 #include"FADE.h"
 #include"MAP.h"
 #include"PLAYER.h"
+#include"RANK.h"
+#include"PLAYER_BULLET.h"
 #include"SHEEP.h"
 #include"CAT.h"
 #include"BOSS.h"
@@ -24,7 +26,9 @@ private:
 		MAP::DATA map;
 		CHARACTER::DATA playerChara;
 		PLAYER::DATA player;
+		RANK::DATA rank;
 		CHARACTER::DATA playerBulletChara;
+		PLAYER_BULLET::DATA playerBullet;
 		CHARACTER::DATA sheepChara;
 		SHEEP::DATA sheep;
 		CHARACTER::DATA catChara;

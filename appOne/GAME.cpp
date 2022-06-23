@@ -19,10 +19,16 @@ GAME::GAME()
 	Fade = new FADE(this);
 	Map = new MAP(this);
 	CharacterManager = new CHARACTER_MANAGER(this);
+	Player = new PLAYER(this);
+	Boss = new BOSS(this);
+	Rank = new RANK(this);
 }
 
 GAME::~GAME()
-{
+{	
+	delete Rank;
+	delete Boss;
+	delete Player;
 	delete CharacterManager;
 	delete Map;
 	delete Fade;
@@ -36,6 +42,8 @@ void GAME::run()
 {
 	window(1050, 590, 1);
 	hideCursor();
+	srand((unsigned)time(NULL));
+
 
 	Container->load();
 	

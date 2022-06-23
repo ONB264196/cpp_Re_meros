@@ -25,8 +25,8 @@ void TITLE::draw()
 	text("Re：走れメロス", width / 2 - size * 3.5f + 2, height / 2 - size * 2 + 2);
 	size = 50;
 	textSize(size);
-	fill(5, 5, 15);
-	text("'SPACE'でスタート", width / 2 - size * 4.25f + 2, height / 2 + 2);
+	fill(31, 30, 51);
+	text(" SPACE でスタート", width / 2 - size * 4.25f + 2, height / 2 + 2);
 	size = 35;
 	textSize(size);
 	text("左右移動・・・'A' or '←' ⇔ 'D' or '→'", size * 5 + 1, height - size * 6 + 1);
@@ -39,8 +39,8 @@ void TITLE::draw()
 	text("Re：走れメロス", width / 2 - size * 3.5f, height / 2 - size * 2);
 	size = 50;
 	textSize(size);
-	fill(31, 30, 51);
-	text("'SPACE'でスタート", width / 2 - size * 4.25f, height / 2);
+	fill(220);
+	text(" SPACE でスタート", width / 2 - size * 4.25f, height / 2);
 	size = 35;
 	textSize(size);
 	text("左右移動・・・'A' or '←' ⇔ 'D' or '→'", size * 5, height - size * 6);

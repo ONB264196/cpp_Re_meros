@@ -9,10 +9,13 @@ class STAGE :
 public:
     struct DATA {
         int backImg = 0;
-        float time = 0;
         int stageClearImg = 0;
         int gameOverImg = 0;
-        float backToTitleTime = 0;
+        float nextToRankTime = 0;
+        float tSize = 0;
+        float timePx = 0;
+        float timePy = 0;
+        float remain = 0;
         COLOR backColor;
         COLOR gameOverColor;
         COLOR stageClearColor;

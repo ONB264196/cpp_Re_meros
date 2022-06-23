@@ -24,7 +24,7 @@ void FADE::outTrigger()
 }
 
 void FADE::draw()
-{
+  {
 	if (State == STATE::IN_END ||
 		State == STATE::OUT_END) {
 		return;
