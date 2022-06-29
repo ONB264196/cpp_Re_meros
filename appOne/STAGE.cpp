@@ -8,6 +8,7 @@
 #include"CHARACTER_MANAGER.h"
 #include"STAGE.h"
 #include"CLEAR.h"
+#include <charconv>
 
 void STAGE::create()
 {
@@ -20,35 +21,25 @@ void STAGE::init()
 	game()->map()->init();
 	game()->characterManager()->init();
 	game()->fade()->inTrigger();
-	Stage.remain = game()->container()->data().stage.remain;
 	Stage.tSize = game()->container()->data().stage.tSize;
 	Stage.timePx = game()->container()->data().stage.timePx;
 	Stage.timePy = game()->container()->data().stage.timePy;
+	TR = game()->container()->data().player.remain;
 }
 
 void STAGE::update()
 {
 	game()->characterManager()->update();
 	game()->map()->update();
-	if (!game()->player()->survived()) {
-		Stage.remain -= delta;
-	}
-	if (Stage.remain == 0) {
-		game()->player()->damage();
-	}
+	if(TR >= 0)TR -= delta;
 }
 
 void STAGE::draw()
 {
 	BackGround();
 	game()->map()->draw();
-
-	//Žc‚èŽžŠÔ
-	textSize(Stage.tSize);
-	if (Stage.remain >= 10.0f) fill(0);
-	else fill(255, 50, 50);
-	text((int)Stage.remain, Stage.timePx, Stage.timePy);
 	game()->characterManager()->draw();
+	disptime(TR);
 
 	if (game()->player()->died()) {
 		Logo(Stage.gameOverImg, Stage.stageClearColor);
@@ -78,4 +69,12 @@ void STAGE::nextScene()
 {
 	if (Stage.nextToRankTime <= 0) game()->fade()->outTrigger();
 	if (game()->fade()->outEndFlag()) game()->setCurScene(game()->clear());
+}
+
+void STAGE::disptime(float t)
+{
+	textSize(Stage.tSize);
+	if (t >= 10.0f) fill(0);
+	else fill(255, 50, 50);
+	text((int)t , Stage.timePx, Stage.timePy);
 }

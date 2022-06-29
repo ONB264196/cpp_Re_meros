@@ -22,8 +22,24 @@ void MAP::create()
 void MAP::init()
 {
 	FILE* fp;
-	fopen_s(&fp, Map.fileName, "rb");
-	WARNING(fp == 0, "マップデータを読み込めません", Map.fileName);
+	int mapNumber = rand() % 4;
+	mapNumber = 0;
+	if (mapNumber == 0) {
+		fopen_s(&fp, Map.fileName, "rb");
+		WARNING(fp == 0, "マップデータを読み込めません", Map.fileName);
+	}
+	else if (mapNumber == 1) {
+		fopen_s(&fp, Map.fileName1, "rb");
+		WARNING(fp == 0, "マップデータを読み込めません", Map.fileName1);
+	}
+	else if (mapNumber == 2) {
+		fopen_s(&fp, Map.fileName2, "rb");
+		WARNING(fp == 0, "マップデータを読み込めません", Map.fileName2);
+	}
+	else {
+		fopen_s(&fp, Map.fileName3, "rb");
+		WARNING(fp == 0, "マップデータを読み込めません", Map.fileName3);
+	}
 
 	fseek(fp, 0, SEEK_END);
 	int fileSize = ftell(fp);

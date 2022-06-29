@@ -22,30 +22,30 @@ void TITLE::draw()
 	size = 70;
 	textSize(size);
 	fill(15, 5, 5);
-	text("Re：走れメロス", width / 2 - size * 3.5f + 2, height / 2 - size * 2 + 2);
-	size = 50;
-	textSize(size);
+	text("Re：走れメロス", width / 2 - size * 3.5f + 2, height / 2 - size * 2 + 1);
 	fill(31, 30, 51);
-	text(" SPACE でスタート", width / 2 - size * 4.25f + 2, height / 2 + 2);
 	size = 35;
 	textSize(size);
-	text("左右移動・・・'A' or '←' ⇔ 'D' or '→'", size * 5 + 1, height - size * 6 + 1);
-	text("ジャンプ・・・'W' or 'K' or '↓'", size * 5 + 1, height - size * 4 + 1);
-	text(" 投げる ・・・'S' or 'J' or '↑'", size * 5 + 1, height - size * 2 + 1);
+	text("左右移動・・・'A' ⇔ 'D'", size * 9 + 2, height - size * 5 + 1);
+	text("ジャンプ・・・'W'", size * 9 + 2, height - size * 3 + 1);
+	text(" 投げる ・・・'J'", size * 9 + 2, height - size * 1 + 1);
+	size = 50;
+	textSize(size);
+	text(" SPACE でスタート", width / 2 - size * 4.25f + 2, height / 2 + 1);
 
+	fill(248, 30, 51);
 	size = 70;
 	textSize(size);
-	fill(225, 75, 60);
 	text("Re：走れメロス", width / 2 - size * 3.5f, height / 2 - size * 2);
-	size = 50;
-	textSize(size);
 	fill(220);
-	text(" SPACE でスタート", width / 2 - size * 4.25f, height / 2);
 	size = 35;
 	textSize(size);
-	text("左右移動・・・'A' or '←' ⇔ 'D' or '→'", size * 5, height - size * 6);
-	text("ジャンプ・・・'W' or 'K' or '↓'", size * 5, height - size * 4);
-	text(" 投げる ・・・'S' or 'J' or '↑'", size * 5, height - size * 2);
+	text("左右移動・・・'A' ⇔ 'D'", size * 9, height - size * 5);
+	text("ジャンプ・・・'W'", size * 9, height - size * 3);
+	text(" 投げる ・・・'J'", size * 9, height - size * 1);
+	size = 50;
+	textSize(size);
+	text(" SPACE でスタート", width / 2 - size * 4.25f, height / 2);
 
 	game()->fade()->draw();
 }

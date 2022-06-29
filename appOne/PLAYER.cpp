@@ -20,17 +20,30 @@ void PLAYER::appear(float wx, float wy, float vx, float vy)
 	Chara.hp = game()->container()->data().playerChara.hp;
 	Chara.wx = wx;
 	Chara.wy = wy;
+	Chara.speed = game()->container()->data().playerChara.speed;
+	Chara.initVecUp = game()->container()->data().playerChara.initVecUp;
 	Chara.animId = Player.rightAnimId;
 	Player.jumpFlag = 0;
-	State = STATE::STRUGGLING;
+	game()->player()->State = STATE::STRUGGLING;
+	
+	TR = game()->container()->data().player.remain;
 }
 
 void PLAYER::update()
 {
+	evaluation();
 	Launch();
 	Move();
 	CollisionWithMap();
 	CheckState();
+	//残り時間
+	if (!game()->player()->survived() && TR > 0) TR -= delta;
+	//タイムアップ
+	if (TR <= 0) {
+		game()->player()->State = STATE::DIED;
+		game()->player()->r = 'C';
+	}
+	
 }
 
 void PLAYER::Launch()
@@ -114,17 +127,10 @@ void PLAYER::CheckState()
 	//落下
 	if (Chara.wy > height + game()->map()->chipSize()) {
 		game()->player()->State = STATE::FALL;
+		game()->player()->r = 'C';
 		Chara.hp = 0;
-		game()->stage()->draw();
+		return;
 	}
-	//ステージクリア	
-	if (State == STATE::SURVIVED) {
-		if (1);
-		evaluation();
-		Chara.hp = 0;
-		game()->stage()->draw();
-	}
-	
 }
 
 void PLAYER::damage()
@@ -132,7 +138,7 @@ void PLAYER::damage()
 	if (Chara.hp > 0) {
 		Chara.hp--;
 		if (Chara.hp == 0) {
-			State = STATE::DIED;
+			game()->player()->State = STATE::DIED;
 			Chara.vy = Chara.initVecUp;
 		}
 	}
@@ -148,13 +154,13 @@ void PLAYER::evaluation()
 
 bool PLAYER::died()
 {
-	if (State == STATE::DIED) {
+	if (game()->player()->State == STATE::DIED) {
 		Chara.vy += Player.gravity * delta;
 		Chara.wy += Chara.vy += 60 * delta;
 		draw();
 		return true;
 	}
-	else if (State == STATE::FALL) {
+	else if (game()->player()->State == STATE::FALL) {
 		return true;
 	}
 	return false;
@@ -162,7 +168,7 @@ bool PLAYER::died()
 
 bool PLAYER::survived()
 {
-	return State == STATE::SURVIVED;
+	return game()->player()->State == STATE::SURVIVED;
 }
 
 float PLAYER::overCenterVx()

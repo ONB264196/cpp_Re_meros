@@ -13,7 +13,9 @@ public:
         float gravity = 0;
         char bulletCharaId = 0;
         float bulletOffsetX = 0;
+        float remain = 0;
     };
+    float TR = 0;
     char r = 'C';
     enum class STATE { STRUGGLING, DIED, FALL, SURVIVED };
     STATE State = STATE::STRUGGLING;

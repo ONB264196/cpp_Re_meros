@@ -6,6 +6,9 @@ class MAP :
 public:
     struct DATA {
         const char* fileName = 0;
+        const char* fileName1 = 0;
+        const char* fileName2 = 0;
+        const char* fileName3 = 0;
         int blockImg = 0;
         int goalImg = 0;
         int chipSize = 0;

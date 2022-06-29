@@ -139,9 +139,7 @@ void BOSS::damage()
 		Boss.damageTime = Boss.damageInterval;
 		Chara.hp--;
 		if (Chara.hp == 0) {
-			if (1);
-				game()->player()->State = PLAYER::STATE::SURVIVED;
-				game()->player()->update();
+			game()->player()->State = PLAYER::STATE::SURVIVED;
 		}
 	}
 }

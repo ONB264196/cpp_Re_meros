@@ -23,28 +23,30 @@ void CONTAINER::load()
 
 void CONTAINER::CreateData()
 {
-	Data.stage.tSize = 30;
-	Data.stage.timePx = 1000.0f;
-	Data.stage.timePy = 45.0f;
-	Data.stage.remain = 40.0f;
 	Data.stage.backColor = COLOR(255, 255, 255, 255);
 	Data.stage.gameOverColor = COLOR(255, 0, 0);
 	Data.stage.stageClearColor = COLOR(255, 255, 0);
 	Data.stage.logoPx = (width - 800) / 2;
 	Data.stage.logoPy = 220;
 	Data.stage.nextToRankTime = 2.0f;
+	Data.stage.tSize = 30;
+	Data.stage.timePx = 1000.0f;
+	Data.stage.timePy = 45.0f;
 
-	Data.clear.backToTitleTime = 6.0f;
+	Data.clear.backToTitleTime = 3.5f;
 
 	Data.fade.color = COLOR(60, 60, 60);
 	Data.fade.speed = 255 * 2;
 
 	Data.map.fileName = "assets\\map.txt";
+	Data.map.fileName1 = "assets\\map1.txt";
+	Data.map.fileName2 = "assets\\map2.txt";
+	Data.map.fileName3 = "assets\\map3.txt";
 	Data.map.chipSize = 50;
 	Data.map.centerX = width / 2 - Data.map.chipSize / 2;
 
 	Data.playerChara.charaId = MAP::PLAYER_ID;
-	Data.playerChara.hp = 500;
+	Data.playerChara.hp = 10;
 	Data.playerChara.groupId = 0;
 	Data.playerChara.speed = 3.4f * 120;
 	Data.playerChara.initVecUp = -16.0f;
@@ -59,6 +61,7 @@ void CONTAINER::CreateData()
 	Data.player.gravity = 36.0f;
 	Data.player.bulletOffsetX = 20.0f;
 	Data.player.bulletCharaId = MAP::PLAYER_BULLET_ID;
+	Data.player.remain = 5.0f;
 
 	Data.playerBulletChara.charaId = MAP::PLAYER_BULLET_ID;
 	Data.playerBulletChara.groupId = 0; 
@@ -71,7 +74,7 @@ void CONTAINER::CreateData()
 	Data.playerBullet.gravity = 48.0f;
 
 	Data.bossChara.charaId = MAP::BOSS_ID;
-	Data.bossChara.hp = 2;
+	Data.bossChara.hp = 5;
 	Data.bossChara.groupId = 1;
 	Data.bossChara.speed = 1.2f * 120;
 	Data.bossChara.initVecUp = -16.0f;
@@ -181,6 +184,7 @@ void CONTAINER::LoadGraphics()
 	Data.rank.BImg = loadImage("assets\\clear_B.png");
 	Data.rank.CImg = loadImage("assets\\clear_C.png");	
 
+	
 	Data.map.blockImg = loadImage("assets\\block.png");
 
 	Data.playerBulletChara.img = loadImage("assets\\playerBullet.png");
@@ -188,10 +192,10 @@ void CONTAINER::LoadGraphics()
 
 	//ANIMS
 	Data.playerChara.anims = new ANIMS("assets\\player");
-	Data.playerChara.animData.interval = 0.1f;
+	Data.playerChara.animData.interval = 0.2f;
 
 	Data.bossChara.anims = new ANIMS("assets\\boss");
-	Data.bossChara.animData.interval = 0.1f;
+	Data.bossChara.animData.interval = 0.2f;
 
 
 	//ANIM
