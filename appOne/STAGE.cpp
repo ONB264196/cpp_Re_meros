@@ -9,6 +9,7 @@
 #include"STAGE.h"
 #include"CLEAR.h"
 #include <charconv>
+#include<sound.h>
 
 void STAGE::create()
 {
@@ -22,6 +23,7 @@ void STAGE::init()
 	game()->characterManager()->init();
 	game()->fade()->inTrigger();
 	TR = game()->container()->data().player.remain;
+	playLoopSound(Stage.BGM);
 }
 
 void STAGE::update()
@@ -64,7 +66,10 @@ void STAGE::Logo(int img, const COLOR& color)
 
 void STAGE::nextScene()
 {
-	if (Stage.nextToRankTime <= 0) game()->fade()->outTrigger();
+	if (Stage.nextToRankTime <= 0) {
+		game()->fade()->outTrigger();
+		stopSound(Stage.BGM);
+	}
 	if (game()->fade()->outEndFlag()) game()->setCurScene(game()->clear());
 }
 

@@ -34,10 +34,11 @@ public:
         float lmtTimePx = 0;
         float timePy = 0;
         float lmtTimePy = 0;
+        int BGM = 0;
     };
     float TR = 0;
-private:
     DATA Stage;
+private:
     void BackGround();
     void Logo(int img, const COLOR& color);
 public:

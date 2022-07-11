@@ -23,7 +23,6 @@ void MAP::init()
 {
 	FILE* fp;
 	int mapNumber = rand() % 4;
-	mapNumber = 2;
 	if (mapNumber == 0) {
 		fopen_s(&fp, Map.fileName, "rb");
 		WARNING(fp == 0, "マップデータを読み込めません", Map.fileName);

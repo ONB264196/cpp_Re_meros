@@ -180,8 +180,8 @@ void CONTAINER::CreateData()
 void CONTAINER::LoadGraphics()
 {
 	//îwåi
-	Data.stage.backImg = loadImage("assets\\back_wide.png");
-	Data.clear.backImg = loadImage("assets\\clear_back.png");
+	Data.stage.backImg = loadImage("assets\\background\\back_wide.png");
+	Data.clear.backImg = loadImage("assets\\background\\clear_back.png");
 	//ÉçÉS
 	Data.stage.stageClearImg = loadImage("assets\\logo\\StageClear.png");
 	Data.stage.gameOverImg = loadImage("assets\\logo\\GameOver.png");
@@ -202,7 +202,7 @@ void CONTAINER::LoadGraphics()
 	Data.rank.BImg = loadImage("assets\\RANK\\clear_B.png");
 	Data.rank.CImg = loadImage("assets\\RANK\\clear_C.png");	
 	//ÉuÉçÉbÉN
-	Data.map.blockImg = loadImage("assets\\block.png");
+	Data.map.blockImg = loadImage("assets\\map\\block.png");
 	//íe
 	Data.playerBulletChara.img = loadImage("assets\\bullet\\playerBullet.png");
 	Data.bossBulletChara.img = loadImage("assets\\bullet\\bossBullet.png");
@@ -233,6 +233,7 @@ void CONTAINER::LoadSound()
 {
 	//playSound(snd);
 	//playLoopSound(snd);
+	//SE
 	Data.player.jumpSnd = loadSound("assets\\SE\\jumpSND.wav");
 	Data.player.throwSnd = loadSound("assets\\SE\\throwSND.wav");
 	Data.player.landingSnd = loadSound("assets\\SE\\landingSND.wav");
@@ -245,4 +246,6 @@ void CONTAINER::LoadSound()
 	Data.charaMng.sheepSnd = loadSound("assets\\SE\\sheepSND.wav");
 	Data.charaMng.SDSnd = loadSound("assets\\SE\\sportsDrinkSND.wav");
 	Data.charaMng.FFSnd = loadSound("assets\\SE\\flyingFishSND.wav");
+	//BGM
+	Data.stage.BGM = loadSound("assets\\BGM\\stage.wav");
 }

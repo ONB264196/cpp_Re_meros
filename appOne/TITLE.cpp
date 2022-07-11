@@ -47,6 +47,12 @@ void TITLE::draw()
 	textSize(size);
 	text(" SPACE でスタート", width / 2 - size * 4.25f, height / 2);
 
+	fill(31, 30, 51, 200);
+	size = 20;
+	textSize(size);
+	text("SE : 魔王魂・効果音ラボ", width - size * 12, height - size / 2);
+
+
 	game()->fade()->draw();
 }
 
