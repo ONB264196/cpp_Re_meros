@@ -21,9 +21,6 @@ void STAGE::init()
 	game()->map()->init();
 	game()->characterManager()->init();
 	game()->fade()->inTrigger();
-	Stage.tSize = game()->container()->data().stage.tSize;
-	Stage.timePx = game()->container()->data().stage.timePx;
-	Stage.timePy = game()->container()->data().stage.timePy;
 	TR = game()->container()->data().player.remain;
 }
 
@@ -73,8 +70,44 @@ void STAGE::nextScene()
 
 void STAGE::disptime(float t)
 {
-	textSize(Stage.tSize);
-	if (t >= 10.0f) fill(0);
-	else fill(255, 50, 50);
-	text((int)t , Stage.timePx, Stage.timePy);
+	int d1 = (int)t % 10;
+	int d10 = ((int)t / 10) % 10;
+
+	if (d10) {
+		imageColor(0);
+		if (d10 == 9) image(Stage.T9Img, Stage.timePx - Stage.timeOfsX, Stage.timePy, 0, Stage.tImgSize);
+		if (d10 == 8) image(Stage.T8Img, Stage.timePx - Stage.timeOfsX, Stage.timePy, 0, Stage.tImgSize);
+		if (d10 == 7) image(Stage.T7Img, Stage.timePx - Stage.timeOfsX, Stage.timePy, 0, Stage.tImgSize);
+		if (d10 == 6) image(Stage.T6Img, Stage.timePx - Stage.timeOfsX, Stage.timePy, 0, Stage.tImgSize);
+		if (d10 == 5) image(Stage.T5Img, Stage.timePx - Stage.timeOfsX, Stage.timePy, 0, Stage.tImgSize);
+		if (d10 == 4) image(Stage.T4Img, Stage.timePx - Stage.timeOfsX, Stage.timePy, 0, Stage.tImgSize);
+		if (d10 == 3) image(Stage.T3Img, Stage.timePx - Stage.timeOfsX, Stage.timePy, 0, Stage.tImgSize);
+		if (d10 == 2) image(Stage.T2Img, Stage.timePx - Stage.timeOfsX, Stage.timePy, 0, Stage.tImgSize);
+		if (d10 == 1) image(Stage.T1Img, Stage.timePx - Stage.timeOfsX, Stage.timePy, 0, Stage.tImgSize);
+		if (d10 == 0) image(Stage.T0Img, Stage.timePx - Stage.timeOfsX, Stage.timePy, 0, Stage.tImgSize);
+		if (d1 == 9) image(Stage.T9Img, Stage.timePx, Stage.timePy, 0, Stage.tImgSize);
+		if (d1 == 8) image(Stage.T8Img, Stage.timePx, Stage.timePy, 0, Stage.tImgSize);
+		if (d1 == 7) image(Stage.T7Img, Stage.timePx, Stage.timePy, 0, Stage.tImgSize);
+		if (d1 == 6) image(Stage.T6Img, Stage.timePx, Stage.timePy, 0, Stage.tImgSize);
+		if (d1 == 5) image(Stage.T5Img, Stage.timePx, Stage.timePy, 0, Stage.tImgSize);
+		if (d1 == 4) image(Stage.T4Img, Stage.timePx, Stage.timePy, 0, Stage.tImgSize);
+		if (d1 == 3) image(Stage.T3Img, Stage.timePx, Stage.timePy, 0, Stage.tImgSize);
+		if (d1 == 2) image(Stage.T2Img, Stage.timePx, Stage.timePy, 0, Stage.tImgSize);
+		if (d1 == 1) image(Stage.T1Img, Stage.timePx, Stage.timePy, 0, Stage.tImgSize);
+		if (d1 == 0) image(Stage.T0Img, Stage.timePx, Stage.timePy, 0, Stage.tImgSize);
+	}
+	else {
+		imageColor(255, 60, 60);
+		if (d1 == 9) image(Stage.T9Img, Stage.lmtTimePx, Stage.lmtTimePy, 0, Stage.lmtTImgSize);
+		if (d1 == 8) image(Stage.T8Img, Stage.lmtTimePx, Stage.lmtTimePy, 0, Stage.lmtTImgSize);
+		if (d1 == 7) image(Stage.T7Img, Stage.lmtTimePx, Stage.lmtTimePy, 0, Stage.lmtTImgSize);
+		if (d1 == 6) image(Stage.T6Img, Stage.lmtTimePx, Stage.lmtTimePy, 0, Stage.lmtTImgSize);
+		if (d1 == 5) image(Stage.T5Img, Stage.lmtTimePx, Stage.lmtTimePy, 0, Stage.lmtTImgSize);
+		if (d1 == 4) image(Stage.T4Img, Stage.lmtTimePx, Stage.lmtTimePy, 0, Stage.lmtTImgSize);
+		if (d1 == 3) image(Stage.T3Img, Stage.lmtTimePx, Stage.lmtTimePy, 0, Stage.lmtTImgSize);
+		if (d1 == 2) image(Stage.T2Img, Stage.lmtTimePx, Stage.lmtTimePy, 0, Stage.lmtTImgSize);
+		if (d1 == 1) image(Stage.T1Img, Stage.lmtTimePx, Stage.lmtTimePy, 0, Stage.lmtTImgSize);
+		if (d1 == 0) image(Stage.T0Img, Stage.lmtTimePx, Stage.lmtTimePy, 0, Stage.lmtTImgSize);
+	}
+
 }

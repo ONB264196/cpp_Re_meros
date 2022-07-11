@@ -7,6 +7,7 @@
 #include"MAP.h"
 #include"PLAYER.h"
 #include"CHARACTER.h"
+#include <sound.h>
 
 
 void PLAYER::create()
@@ -23,6 +24,7 @@ void PLAYER::appear(float wx, float wy, float vx, float vy)
 	Chara.speed = game()->container()->data().playerChara.speed;
 	Chara.initVecUp = game()->container()->data().playerChara.initVecUp;
 	Chara.animId = Player.rightAnimId;
+	Chara.debufCount = 0;
 	Player.jumpFlag = 0;
 	game()->player()->State = STATE::STRUGGLING;
 	
@@ -40,6 +42,7 @@ void PLAYER::update()
 	if (!game()->player()->survived() && TR > 0) TR -= delta;
 	//タイムアップ
 	if (TR <= 0) {
+		Chara.hp = 0;
 		game()->player()->State = STATE::DIED;
 		game()->player()->r = 'C';
 	}
@@ -54,6 +57,7 @@ void PLAYER::Launch()
 		float wx = Chara.wx + Player.bulletOffsetX * vx;
 		float wy = Chara.wy;
 		game()->characterManager()->appear(Player.bulletCharaId, wx, wy, vx);
+		playSound(Player.throwSnd);
 	}
 }
 
@@ -64,6 +68,7 @@ void PLAYER::Move()
 		if (isTrigger(KEY_UP) || isTrigger(KEY_K) || isTrigger(KEY_W)) {
 			Chara.vy = Chara.initVecUp;
 			Player.jumpFlag = 1;
+			playSound(Player.jumpSnd);
 		}
 	}
 	if (Player.jumpFlag == 1) {
@@ -113,6 +118,7 @@ void PLAYER::CollisionWithMap()
 	}
 	// ※1　キャラ下側
 	if (map->collisionCharaBottom(Player.curWx, Chara.wy)) {
+		if (Player.jumpFlag == 1) playSound(Player.landingSnd);
 		Player.jumpFlag = 0;
 		Chara.vy = 0.0f;
 		Chara.wy = (int)Chara.wy / map->chipSize() * (float)map->chipSize();
@@ -129,6 +135,7 @@ void PLAYER::CheckState()
 		game()->player()->State = STATE::FALL;
 		game()->player()->r = 'C';
 		Chara.hp = 0;
+		playSound(Player.fallSnd);
 		return;
 	}
 }
@@ -140,6 +147,8 @@ void PLAYER::damage()
 		if (Chara.hp == 0) {
 			game()->player()->State = STATE::DIED;
 			Chara.vy = Chara.initVecUp;
+			playSound(Player.diedSnd);
+			
 		}
 	}
 }

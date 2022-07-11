@@ -42,6 +42,7 @@ private:
 		FLYING_FISH::DATA flying_fish;
 		CHARACTER::DATA flying_fishChara;
 		CHARACTER_MANAGER::DATA charaMng;
+		CHARACTER::DATA chara;
 	};
 	DATA Data;
 	void CreateData();

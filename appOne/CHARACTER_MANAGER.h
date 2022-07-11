@@ -13,10 +13,15 @@ public:
         int numCats = 0;
         int numFlyingFish = 0;
         int numSportsDrinks = 0;
+
+        int FFSnd = 0;
+        int SDSnd = 0;
+        int sheepSnd = 0;
+        int catSnd = 0;
     };
 private:
     int Total = 0;
-    DATA CharaMag;
+    DATA CharaMng;
     class CHARACTER** Characters = nullptr;
     class PLAYER* Player = nullptr;
 public:

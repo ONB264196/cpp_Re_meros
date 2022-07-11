@@ -43,6 +43,10 @@ public:
         float damageInterval = 0;
         COLOR damageColor;
         COLOR normalColor;
+
+        int jumpSnd = 0;
+        int landingSnd = 0;
+        int throwSnd = 0;
     };
 private:
     DATA Boss;

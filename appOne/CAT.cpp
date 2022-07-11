@@ -24,33 +24,4 @@ void CAT::appear(float wx, float wy, float vx, float vy)
 
 void CAT::update()
 {
-	Move();
-	CollisionWithMap();
-}
-
-void CAT::Move()
-{
-	//—Ž‰º
-	if (Cat.fallFlag) {
-		Chara.vy += Cat.gravity * delta;
-		Chara.wy += Chara.vy * 60 * delta;
-	}
-	//Œ»ÝˆÊ’u‚Ì•Û‘¶
-	Cat.curWx = Chara.wx;
-	//¶‰EˆÚ“®
-	Chara.wx += Chara.vx * (Chara.speed * delta);
-}
-
-void CAT::CollisionWithMap()
-{
-	MAP* map = game()->map();
-	//•Ç‚Å”½“]
-	if (Cat.fallFlag == 0) {
-		if (map->collisionCharaLeft(Chara.wx, Chara.wy) ||
-			map->collisionCharaRight(Chara.wx, Chara.wy)) {
-			Chara.animId = 1 - Chara.animId;
-				Chara.vx = -Chara.vx;
-				Chara.wx = Cat.curWx;
-		}
-	}
 }

@@ -1,5 +1,5 @@
 #include"graphic.h"
-#include"sound.h"
+#include <sound.h>
 #include "CONTAINER.h"
 #include"ANIMS.h"
 
@@ -19,6 +19,7 @@ void CONTAINER::load()
 {
 	CreateData();
 	LoadGraphics();
+	LoadSound();
 }
 
 void CONTAINER::CreateData()
@@ -29,24 +30,28 @@ void CONTAINER::CreateData()
 	Data.stage.logoPx = (width - 800) / 2;
 	Data.stage.logoPy = 220;
 	Data.stage.nextToRankTime = 2.0f;
-	Data.stage.tSize = 30;
+	Data.stage.tImgSize = 0.05f;
+	Data.stage.lmtTImgSize = 0.075f;
 	Data.stage.timePx = 1000.0f;
-	Data.stage.timePy = 45.0f;
+	Data.stage.timeOfsX = 30.0f;
+	Data.stage.lmtTimePx = 970.0f;
+	Data.stage.timePy = 5.0f;
+	Data.stage.lmtTimePy = 5.0f;
 
-	Data.clear.backToTitleTime = 3.5f;
+	Data.clear.backToTitleTime = 2.0f;
 
 	Data.fade.color = COLOR(60, 60, 60);
 	Data.fade.speed = 255 * 2;
 
-	Data.map.fileName = "assets\\map.txt";
-	Data.map.fileName1 = "assets\\map1.txt";
-	Data.map.fileName2 = "assets\\map2.txt";
-	Data.map.fileName3 = "assets\\map3.txt";
+	Data.map.fileName = "assets\\map\\map0.txt";
+	Data.map.fileName1 = "assets\\map\\map1.txt";
+	Data.map.fileName2 = "assets\\map\\map2.txt";
+	Data.map.fileName3 = "assets\\map\\map3.txt";
 	Data.map.chipSize = 50;
 	Data.map.centerX = width / 2 - Data.map.chipSize / 2;
 
 	Data.playerChara.charaId = MAP::PLAYER_ID;
-	Data.playerChara.hp = 10;
+	Data.playerChara.hp = 6;
 	Data.playerChara.groupId = 0;
 	Data.playerChara.speed = 3.4f * 120;
 	Data.playerChara.initVecUp = -16.0f;
@@ -61,7 +66,7 @@ void CONTAINER::CreateData()
 	Data.player.gravity = 36.0f;
 	Data.player.bulletOffsetX = 20.0f;
 	Data.player.bulletCharaId = MAP::PLAYER_BULLET_ID;
-	Data.player.remain = 5.0f;
+	Data.player.remain = 50.0f;
 
 	Data.playerBulletChara.charaId = MAP::PLAYER_BULLET_ID;
 	Data.playerBulletChara.groupId = 0; 
@@ -74,10 +79,10 @@ void CONTAINER::CreateData()
 	Data.playerBullet.gravity = 48.0f;
 
 	Data.bossChara.charaId = MAP::BOSS_ID;
-	Data.bossChara.hp = 5;
+	Data.bossChara.hp = 25;
 	Data.bossChara.groupId = 1;
 	Data.bossChara.speed = 1.2f * 120;
-	Data.bossChara.initVecUp = -16.0f;
+	Data.bossChara.initVecUp = -18.0f;
 	Data.bossChara.offsetLeft = 25.0f;
 	Data.bossChara.offsetTop = 25.0f;
 	Data.bossChara.offsetRight = 25.0f;
@@ -160,45 +165,56 @@ void CONTAINER::CreateData()
 	Data.flying_fishChara.offsetRight = 25.0f;
 	Data.flying_fishChara.offsetTop = 25.0f;
 	Data.flying_fishChara.offsetBottom = 25.0f;
-	Data.flying_fish.buffPower = 1.0247f;
+	Data.flying_fish.buffPower = 1.0488f;
 
 	Data.charaMng.numPlayers = 1;
 	Data.charaMng.numPlayerBullets = 3;
 	Data.charaMng.numBosses = 1;
 	Data.charaMng.numBossBullets = 4;
-	Data.charaMng.numSheeps = 1;
-	Data.charaMng.numCats = 1;
-	Data.charaMng.numSportsDrinks = 2;
-	Data.charaMng.numFlyingFish = 2;
+	Data.charaMng.numSheeps = 2;
+	Data.charaMng.numCats = 2;
+	Data.charaMng.numSportsDrinks = 3;
+	Data.charaMng.numFlyingFish = 3;
 }
 
 void CONTAINER::LoadGraphics()
 {
+	//背景
 	Data.stage.backImg = loadImage("assets\\back_wide.png");
-	Data.stage.stageClearImg = loadImage("assets\\StageClear.png");
-	Data.stage.gameOverImg = loadImage("assets\\GameOver.png");
 	Data.clear.backImg = loadImage("assets\\clear_back.png");
-	
-	Data.rank.SImg = loadImage("assets\\clear_S.png");
-	Data.rank.AImg = loadImage("assets\\clear_A.png");
-	Data.rank.BImg = loadImage("assets\\clear_B.png");
-	Data.rank.CImg = loadImage("assets\\clear_C.png");	
-
-	
+	//ロゴ
+	Data.stage.stageClearImg = loadImage("assets\\logo\\StageClear.png");
+	Data.stage.gameOverImg = loadImage("assets\\logo\\GameOver.png");
+	//時間
+	Data.stage.T0Img = loadImage("assets\\TImgs\\T0.png");
+	Data.stage.T1Img = loadImage("assets\\TImgs\\T1.png");
+	Data.stage.T2Img = loadImage("assets\\TImgs\\T2.png");
+	Data.stage.T3Img = loadImage("assets\\TImgs\\T3.png");
+	Data.stage.T4Img = loadImage("assets\\TImgs\\T4.png");
+	Data.stage.T5Img = loadImage("assets\\TImgs\\T5.png");
+	Data.stage.T6Img = loadImage("assets\\TImgs\\T6.png");
+	Data.stage.T7Img = loadImage("assets\\TImgs\\T7.png");
+	Data.stage.T8Img = loadImage("assets\\TImgs\\T8.png");
+	Data.stage.T9Img = loadImage("assets\\TImgs\\T9.png");
+	//ランク
+	Data.rank.SImg = loadImage("assets\\RANK\\clear_S.png");
+	Data.rank.AImg = loadImage("assets\\RANK\\clear_A.png");
+	Data.rank.BImg = loadImage("assets\\RANK\\clear_B.png");
+	Data.rank.CImg = loadImage("assets\\RANK\\clear_C.png");	
+	//ブロック
 	Data.map.blockImg = loadImage("assets\\block.png");
+	//弾
+	Data.playerBulletChara.img = loadImage("assets\\bullet\\playerBullet.png");
+	Data.bossBulletChara.img = loadImage("assets\\bullet\\bossBullet.png");
 
-	Data.playerBulletChara.img = loadImage("assets\\playerBullet.png");
-	Data.bossBulletChara.img = loadImage("assets\\bossBullet.png");
-
-	//ANIMS
+	//プレイヤー・ボス
 	Data.playerChara.anims = new ANIMS("assets\\player");
 	Data.playerChara.animData.interval = 0.2f;
 
 	Data.bossChara.anims = new ANIMS("assets\\boss");
 	Data.bossChara.animData.interval = 0.2f;
 
-
-	//ANIM
+	//バフ・デバフキャラ
 	Data.catChara.anim = new ANIM("assets\\cat\\0");
 	Data.catChara.animData.interval = 0.1f;
 
@@ -215,9 +231,18 @@ void CONTAINER::LoadGraphics()
 
 void CONTAINER::LoadSound()
 {
-	//wav・awm形式のみ再生可能
-	//int snd = loadSound("ファイル名");
 	//playSound(snd);
 	//playLoopSound(snd);
-	//この他関数はヘッダー参照
+	Data.player.jumpSnd = loadSound("assets\\SE\\jumpSND.wav");
+	Data.player.throwSnd = loadSound("assets\\SE\\throwSND.wav");
+	Data.player.landingSnd = loadSound("assets\\SE\\landingSND.wav");
+	Data.player.fallSnd = loadSound("assets\\SE\\fallSND.wav");
+	Data.player.diedSnd = loadSound("assets\\Se\\diedSND.wav");
+	Data.boss.jumpSnd = loadSound("assets\\SE\\jumpSND.wav");
+	Data.boss.throwSnd = loadSound("assets\\SE\\throwSND.wav");
+	Data.boss.landingSnd = loadSound("assets\\SE\\landingSND.wav");
+	Data.charaMng.catSnd = loadSound("assets\\SE\\catSND.wav");
+	Data.charaMng.sheepSnd = loadSound("assets\\SE\\sheepSND.wav");
+	Data.charaMng.SDSnd = loadSound("assets\\SE\\sportsDrinkSND.wav");
+	Data.charaMng.FFSnd = loadSound("assets\\SE\\flyingFishSND.wav");
 }

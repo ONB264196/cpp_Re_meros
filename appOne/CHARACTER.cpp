@@ -76,7 +76,7 @@ void CHARACTER::debuff(char Id)
 {
 	//ヒツジ
 	if (Id == 'c') {
-		Chara.speed = game()->container()->data().playerChara.speed / game()->container()->data().sheep.debuffPower;
+		Chara.speed *= game()->container()->data().sheep.debuffPower;
 		Chara.debufCount++;
 	}
 	//ネコ

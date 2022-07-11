@@ -4,6 +4,7 @@
 #include"GAME.h"
 #include"MAP.h"
 #include "BOSS.h"
+#include <sound.h>
 
 
 void BOSS::create()
@@ -46,6 +47,7 @@ void BOSS::Launch()
 			float wx = Chara.wx + Boss.bulletOffsetX * vx;
 			float wy = Chara.wy;
 			game()->characterManager()->appear(Boss.bulletCharaId, wx, wy, vx);
+			playSound(Boss.throwSnd);
 		}
 	}
 }
@@ -61,6 +63,7 @@ void BOSS::Algorithm()
 		if (rand() % 2 == 0) {
 			Chara.vy = Chara.initVecUp;
 			Boss.jumpFlag = 1;
+			playSound(Boss.jumpSnd);
 		}
 	}
 }
@@ -111,6 +114,8 @@ void BOSS::CollisionWithMap()
 	}
 	//接地チェック
 	if (map->collisionCharaBottom(Boss.curWx, Chara.wy)) {
+		if (Boss.jumpFlag == 1) playSound(Boss.landingSnd);
+		Boss.jumpFlag = 0;
 		Boss.fallFlag = 0;
 		Chara.vy = 0;
 		Chara.wy = (int)Chara.wy / map->chipSize() * (float)map->chipSize();
@@ -118,6 +123,7 @@ void BOSS::CollisionWithMap()
 	else {
 		//落とす
 		Boss.fallFlag = 1;
+		Boss.jumpFlag = 1;
 	}
 
 }

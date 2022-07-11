@@ -14,6 +14,11 @@ public:
         char bulletCharaId = 0;
         float bulletOffsetX = 0;
         float remain = 0;
+        int jumpSnd = 0;
+        int landingSnd = 0;
+        int throwSnd = 0;
+        int fallSnd = 0;
+        int diedSnd = 0;
     };
     float TR = 0;
     char r = 'C';

@@ -9,6 +9,7 @@
 #include"FLYING_FISH.h"
 #include"BOSS_BULLET.h"
 #include"CHARACTER_MANAGER.h"
+#include<sound.h>
 
 CHARACTER_MANAGER::CHARACTER_MANAGER(GAME* game) : GAME_OBJECT(game)
 {
@@ -24,31 +25,31 @@ CHARACTER_MANAGER::~CHARACTER_MANAGER()
 
 void CHARACTER_MANAGER::create()
 {
-	CharaMag = game()->container()->data().charaMng;
+	CharaMng = game()->container()->data().charaMng;
 
 	Total = 0;
-	Total += CharaMag.numPlayers;
-	Total += CharaMag.numPlayerBullets;
-	Total += CharaMag.numBosses;
-	Total += CharaMag.numBossBullets;
-	Total += CharaMag.numSheeps;
-	Total += CharaMag.numCats;
-	Total += CharaMag.numSportsDrinks;
-	Total += CharaMag.numFlyingFish;
+	Total += CharaMng.numPlayers;
+	Total += CharaMng.numPlayerBullets;
+	Total += CharaMng.numBosses;
+	Total += CharaMng.numBossBullets;
+	Total += CharaMng.numSheeps;
+	Total += CharaMng.numCats;
+	Total += CharaMng.numSportsDrinks;
+	Total += CharaMng.numFlyingFish;
 
 	
 	Characters = new CHARACTER * [Total];
 
 	Player = new PLAYER(game());
 	int i, j = 0;
-	for (i = 0; i < CharaMag.numPlayers; i++) Characters[j++] = Player;
-	for (i = 0; i < CharaMag.numPlayerBullets; i++) Characters[j++] = new PLAYER_BULLET(game());
-	for (i = 0; i < CharaMag.numBosses; i++) Characters[j++] = new BOSS(game());
-	for (i = 0; i < CharaMag.numBossBullets; i++) Characters[j++] = new BOSS_BULLET(game());
-	for (i = 0; i < CharaMag.numCats; i++) Characters[j++] = new CAT(game());
-	for (i = 0; i < CharaMag.numSheeps; i++) Characters[j++] = new SHEEP(game());
-	for (i = 0; i < CharaMag.numSportsDrinks; i++) Characters[j++] = new SPORTS_DRINK(game());
-	for (i = 0; i < CharaMag.numFlyingFish; i++) Characters[j++] = new FLYING_FISH(game());
+	for (i = 0; i < CharaMng.numPlayers; i++) Characters[j++] = Player;
+	for (i = 0; i < CharaMng.numPlayerBullets; i++) Characters[j++] = new PLAYER_BULLET(game());
+	for (i = 0; i < CharaMng.numBosses; i++) Characters[j++] = new BOSS(game());
+	for (i = 0; i < CharaMng.numBossBullets; i++) Characters[j++] = new BOSS_BULLET(game());
+	for (i = 0; i < CharaMng.numCats; i++) Characters[j++] = new CAT(game());
+	for (i = 0; i < CharaMng.numSheeps; i++) Characters[j++] = new SHEEP(game());
+	for (i = 0; i < CharaMng.numSportsDrinks; i++) Characters[j++] = new SPORTS_DRINK(game());
+	for (i = 0; i < CharaMng.numFlyingFish; i++) Characters[j++] = new FLYING_FISH(game());
 
 	for (int i = 0; i < Total; i++) {
 		Characters[i]->create();
@@ -122,18 +123,22 @@ void CHARACTER_MANAGER::update()
 					if (Characters[i]->groupId() == 2) {
 						if (Characters[i]->charaId() == 'g') {
 							Characters[j]->buff('g');
+							playSound(CharaMng.SDSnd);
 						}
 						else {
 							Characters[j]->buff('h');
+							playSound(CharaMng.FFSnd);
 						}
 						Characters[i]->damage();
 					}
 					else {
 						if (Characters[j]->charaId() == 'g') {
 							Characters[i]->buff('g');
+							playSound(CharaMng.SDSnd);
 						}
 						else {
 							Characters[i]->buff('h');
+							playSound(CharaMng.FFSnd);
 						}
 						Characters[j]->damage();
 					}
@@ -144,18 +149,22 @@ void CHARACTER_MANAGER::update()
 					if (Characters[i]->groupId() == 3) {
 						if (Characters[i]->charaId() == 'c') {
 							Characters[j]->debuff('c');
+							playSound(CharaMng.sheepSnd);
 						}
 						else {
 							Characters[j]->debuff('d');
+							playSound(CharaMng.catSnd);
 						}
 						Characters[i]->damage();
 					}
 					else {
 						if (Characters[j]->charaId() == 'c') {
 							Characters[i]->debuff('c');
+							playSound(CharaMng.sheepSnd);
 						}
 						else {
 							Characters[i]->debuff('d');
+							playSound(CharaMng.catSnd);
 						}
 						Characters[j]->damage();
 					}
