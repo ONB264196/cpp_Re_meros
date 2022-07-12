@@ -9,6 +9,7 @@ public:
         int AImg = 0;
         int BImg = 0;
         int CImg = 0;
+        int applauseSnd = 0;
     };
 private:
     DATA Rank;

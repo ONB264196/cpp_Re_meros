@@ -5,6 +5,12 @@ class TITLE :
 {
 public:
     TITLE(class GAME* game) : SCENE(game) {}
+    struct DATA {
+        int startSnd = 0;
+    };
+private:
+    DATA Title;
+public:
     void init();
     void draw();
     void nextScene();

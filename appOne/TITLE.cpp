@@ -5,6 +5,7 @@
 #include"STAGE.h"
 #include"FADE.h"
 #include "TITLE.h"
+#include<sound.h>
 
 void TITLE::init()
 {
@@ -59,6 +60,7 @@ void TITLE::draw()
 void TITLE::nextScene()
 {
 	if (isTrigger(KEY_SPACE)) {
+		playSound(Title.startSnd);
 		game()->fade()->outTrigger();
 	}
 	if (game()->fade()->outEndFlag()) {

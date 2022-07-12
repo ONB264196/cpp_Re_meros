@@ -68,9 +68,12 @@ void STAGE::nextScene()
 {
 	if (Stage.nextToRankTime <= 0) {
 		game()->fade()->outTrigger();
-		stopSound(Stage.BGM);
 	}
-	if (game()->fade()->outEndFlag()) game()->setCurScene(game()->clear());
+	if (game()->fade()->outEndFlag()) {
+		game()->setCurScene(game()->clear());
+		stopSound(Stage.BGM);
+		if (game()->player()->r == 'S') playSound(Stage.applauseSnd);
+	}
 }
 
 void STAGE::disptime(float t)

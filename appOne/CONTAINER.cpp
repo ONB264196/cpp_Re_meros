@@ -231,9 +231,9 @@ void CONTAINER::LoadGraphics()
 
 void CONTAINER::LoadSound()
 {
-	//playSound(snd);
-	//playLoopSound(snd);
 	//SE
+	Data.title.startSnd = loadSound("assets\\SE\\startSND.wav");
+	Data.stage.applauseSnd = loadSound("assets\\SE\\applauseSND.wav");
 	Data.player.jumpSnd = loadSound("assets\\SE\\jumpSND.wav");
 	Data.player.throwSnd = loadSound("assets\\SE\\throwSND.wav");
 	Data.player.landingSnd = loadSound("assets\\SE\\landingSND.wav");

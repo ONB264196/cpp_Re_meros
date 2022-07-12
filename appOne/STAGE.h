@@ -35,6 +35,7 @@ public:
         float timePy = 0;
         float lmtTimePy = 0;
         int BGM = 0;
+        int applauseSnd = 0;
     };
     float TR = 0;
     DATA Stage;

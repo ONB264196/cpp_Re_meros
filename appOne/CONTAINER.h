@@ -20,6 +20,7 @@ class CONTAINER
 {
 private:
 	struct DATA {
+		TITLE::DATA title;
 		STAGE::DATA stage;
 		CLEAR::DATA clear;
 		FADE::DATA fade;
